@@ -11,6 +11,8 @@
 - [ ] Add and update UML-diagram.
 - [ ] Add nice styling with css.
 
+![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
+
 ### Class: Resource
 
 |**Class:**|<span style="font-weight:normal">pmt:Resource</span>|
@@ -300,8 +302,6 @@ Can add optional descriptors such as dcat:byteSyze, dct:spatial, dct:temporal
 |---|---|
 |Definition:|A collection of enforceable promises concerning the delivery of a data product or use case.|
 |Usage Note:|Data Contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External ontologies, such as ZOEK can be used to establish and describe data contracts.|
-
-TODO: Decide on how much to put in here and how much to outsource?
 
 
 
