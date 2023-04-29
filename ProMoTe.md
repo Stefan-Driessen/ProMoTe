@@ -1,6 +1,16 @@
 
 # ProMoTe
 
+## TODO:
+- [ ] Critically reread everything.
+- [ ] Check and update hyperlinks as needed.
+- [ ] Add data schema information in the right places w. Jaco.
+- [ ] Add additional information surrounding data contracrts.
+- [ ] Add short descriptions before each class.
+- [ ] Consider cardinality  with MAY, MUST, etc.
+- [ ] Add and update UML-diagram.
+- [ ] Add nice styling with css.
+
 ### Class: Resource
 
 |**Class:**|<span style="font-weight:normal">pmt:Resource</span>|
@@ -101,6 +111,15 @@
   |---|---|
   |Definition|A resource which is consumed to create or maintain this resource.|
   |Usage Note:|This property can refer to other resources on the data catalog or to source systems that are not onboarded on the catalog.|
+  |Usage Note:|This property is an inverse property of [pmt:isConsumedBy]()|
+  
+   #### Property: Consumed By
+  |**Property:**|<span style="font-weight:normal">pmt:isConsumedBy</span>|
+  |---|---|
+  |Definition:|A data product or use case that consumes this data product.|
+  |Range:| [pmt:DataProduct](#class:-data-product), [pmt:UseCase](#class:-use-case)|
+  |Usage Note:|Linking consuming data products helps establish data lineage, whereas linking use cases to data products improves the discoverability, understandability of the data product and helps establish a [pmt:estimatedValue](#property:-estimated-value)|
+  |Usage Note:|This is an inverse property of [pmt:consumes](#property:-consumes)|
 
   #### Property: Estimated Value
   |**Property:**|<span style="font-weight:normal">pmt:estimatedValue</span>|
@@ -120,13 +139,14 @@
 |Definition:|The organisational sphere of knowledge and activity from which the data originates.|
 |Usage Note:|Aligning data and software with domains is one of the primary concerns of building a data mesh and domain-driven design in general.|
 
-  #### Property: Data Product
+  #### Property: Resource
   |**Property:**|<span style="font-weight:normal">pmt:dataProduct</span>|
   |---|---|
-  |Definition:|A data product in the domain.|
+  |Definition:|A resource offered in the domain.|
+  |Usage Note:|This is an inverse property of [pmt:domain]()|
 
   #### Property: Institutional Knowledge
-  |**Property:**|<span style="font-weight:normal">pmt:type</span>|
+  |**Property:**|<span style="font-weight:normal">pmt:domainKnowledge</span>|
   |---|---|
   |Definition|Existing terminology within the organisation or domain that relates to a [pmt:Resource](#class:-resource).|
   |Range:|[pmt:InstitutionalKnowledge](#class:-institutional-knowledge)|
@@ -138,8 +158,15 @@
 |Usage Note:|Examples include how the data relates to specifically defined terms, business objects or business processes.|
 |Usage Note:|Recommended usage is to organise institutional knowledge in (existing) ontologies or business glossaries.|
 
+  #### Property: Defining Domain
+  |**Property:**|<span style="font-weight:normal">[pmt:definingDomain]()</span>|
+  |---|---|
+  |Definition:|The domain that defines and maintains the institutional knowledge.|
+  |Usage Note:|This is an inverse property of [pmt:institutionalKnowledge]()|
+  |Usage Note:|It is possible that a piece of institutional knowledge is maintained on an organisation-wide level, rather than on a domain-level, but there should still be a domain responsible for maintining organisation-wide knowledge.|
+
 ### Class: Data Product
-|**Class:**|<span style="font-weight:normal">pmt:DataProduct</span>|
+|**Class:**|<span style="font-weight:normal">[pmt:DataProduct]()</span>|
 |---|---|
 |Definition:|A data product, in a data mesh environment.|
 |Subclass of:|[pmt:resource](#class:-resource)|
@@ -147,30 +174,24 @@
 |Usage Note:|This class describes all everything that holds true across all underlying datasets, distributions, and output ports in the data product.|
 
   #### Property Data Provider
-  |**Property:**|<span style="font-weight:normal">pmt:dataProvider</span>|
+  |**Property:**|<span style="font-weight:normal">[pmt:dataProvider]()</span>|
   |---|---|
   |Definition:|The actor responsible for providing the data product.|
   |SubPropertyOf:| [pmt:resourceProvider](#property:-resource-provider) |
 
   #### Property: Dataset
-  |**Property:**|<span style="font-weight:normal">pmt:dataSet</span>|
+  |**Property:**|<span style="font-weight:normal">[pmt:dataSet]()</span>|
   |---|---|
   |Definition:|A dataset that is offered through this data product.|
   |Range:| [pmt:Dataset](#class:-dataset) |
+  |Usage Note:|This is an inverse property of [pmt:offeredInDataProduct]()|
 
   #### Property: Output Port
-  |**Property:**|<span style="font-weight:normal">pmt:outputPort</span>|
+  |**Property:**|<span style="font-weight:normal">[pmt:outputPort]()</span>|
   |---|---|
   |Definition:|An output port that exposes a distribution of this data product.|
   |Range:| [pmt:OutputPort](#class:-output-port)|
-
-  #### Property: Consumed By
-  |**Property:**|<span style="font-weight:normal">pmt:isConsumedBy</span>|
-  |---|---|
-  |Definition:|A data product or use case that consumes this data product.|
-  |Range:| [pmt:DataProduct](#class:-data-product), [pmt:UseCase](#class:-use-case)|
-  |Usage Note:|Linking consuming data products helps establish data lineage, whereas linking use cases to data products improves the discoverability, understandability of the data product and helps establish a [pmt:estimatedValue](#property:-estimated-value)|
-  |Usage Note:|This is an inverse relation of [pmt:consumes](#property:-consumes)|
+  |Usage Note:|This is an inverse property of [pmt:exposesDataProduct]()|
 
 ### Class: Use Case
 |**Class:**|<span style="font-weight:normal">[pmt:UseCase]()</span>|
@@ -202,8 +223,6 @@ Can be extended with spatial, temporal, bytesize, etc.
   |**Property:**|<span style="font-weight:normal">[dcat:distribution](http://www.w3.org/ns/dcat#distribution)</span>|
   |---|---|
   |Definition:|An available distribution of the dataset.|
-  |Domain:|[dcat:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset)|
-  |Range:|[dcat:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution)|
   
   #### Property: Logical schema
   |**Property:**|<span style="font-weight:normal">[pmt:logicalSchema]()</span>|
@@ -214,8 +233,8 @@ Can be extended with spatial, temporal, bytesize, etc.
   |**Property:**|<span style="font-weight:normal">[pmt:offeredInDataProduct]()</span>|
   |---|---|
   |Definition:|A data product that makes this dataset available for consumption.|
-  |Domain:|[dcat:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset)|
-  |Range:|[dcat:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution)|
+  |Range:|[pmt:DataProduct]()|
+  |Usage Note:|This is an inverse property of [pmt:dataset]()|
   
   
 ### Class Distribution
@@ -225,13 +244,14 @@ Can add optional descriptors such as dcat:byteSyze, dct:spatial, dct:temporal
 |Definition:|A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). |
 |Usage Note:|This represents a general availability of a dataset. It implies no information about the actual access method of the data, which is described in [pmt:OutputPort](#class:-output-port).
 
-  |**Property:**|<span style="font-weight:normal">pmt:correspondingOutputPort</span>|
+  |**Property:**|<span style="font-weight:normal">[pmt:correspondingOutputPort]()</span>|
   |---|---|
   |Definition:|An output ports that exposes this distribution.|
   |Range:| [pmt:OutputPort](#class:-output-port)|
+  |Usage Note:|This is an inverse property of [pmt:exposesDistribution]()|
   
-  #### Property: Logical schema
-  |**Property:**|<span style="font-weight:normal">[pmt:logicalSchema]()</span>|
+  #### Property: Data schema
+  |**Property:**|<span style="font-weight:normal">[pmt:dataSchema]()</span>|
   |---|---|
   |Definition:|TODO: Define with Jaco|
   
@@ -261,7 +281,7 @@ Can add optional descriptors such as dcat:byteSyze, dct:spatial, dct:temporal
   |**Property:**|<span style="font-weight:normal">[pmt:exposesDataProduct]()</span>|
   |---|---|
   |Definition:|The data product that this output port exposes for consumption.|
-  |Usage Note:|This property is an inverse property of [pmt:outputPort](#propoerty:-output-port)|
+  |Usage Note:|This is an inverse property of [pmt:outputPort](#propoerty:-output-port)|
   |Range:|[pmt:OutputPort](#class:-output-port)|
   
   #### Property: Consume Instructions
