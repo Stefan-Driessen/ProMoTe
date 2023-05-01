@@ -1,4 +1,3 @@
-
 # ProMoTe
 
 ## TODO:
@@ -9,7 +8,8 @@
 - [ ] Add short descriptions before each class.
 - [ ] Consider cardinality  with MAY, MUST, etc.
 - [x] Add and update UML-diagram.
-- [ ] Add nice styling with css.
+
+~~- [ ] Add nice styling with css.~~
 
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
 
