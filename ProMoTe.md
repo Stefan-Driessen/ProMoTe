@@ -7,13 +7,14 @@
 - [ ] Add additional information surrounding data contracrts.
 - [ ] Add short descriptions before each class.
 - [ ] Consider cardinality  with MAY, MUST, etc.
+- [ ] Add an intro that explains what this is and where we borrow from.`
 - [x] Add and update UML-diagram.
-
-~~- [ ] Add nice styling with css.~~
+- [ ] Manually style all the tables to fit the width of the page.
 
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
 
 ### Class: Resource
+The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#property-consumes),  [consumed by](#property-consumed-by), [estimated value](#property-estimated-value), [qualified agent](#property-qualified-agent). 
 
 |**Class:**|<span style="font-weight:normal">[pmt:Resource](#class-resource)</span>|
 |---|---|
@@ -36,7 +37,8 @@
   |Range:|[foaf:Agent](http://xmlns.com/foaf/0.1/#term_Agent)|
   |Usage Note:|Resource Providers are either data product providers or use case providers.|
 
-  #### Property: Domain
+<h4 id="resource-property-domain"> Property: Domain</h4>
+
   |**Property:**|<span style="font-weight:normal">[pmt:domain](#property-domain)</span>|
   |---|---|
   |Definition|The domain from which the resource stems.|
@@ -48,7 +50,8 @@
   |Definition|An unambiguous reference to the resource within a given context.|
   |Usage Note:|Common values are a urn or url.|
 
-  #### Property: Description
+<h4 id="resource-property-description"> Property: Description </h4>
+
   |**Property**|<span style="font-weight:normal">[dct:description](http://purl.org/dc/elements/1.1/description)</span>|
   |---|---|
   |Definition|A human-readable account of the resource.|
@@ -137,6 +140,8 @@
   |Usage Note:|Qualified agents are useful when ownership is split amongst several owners, such as a business owner and a technical owner.|
 
 ### Class: Domain
+The following properties are specific to this class: [resource](#property-resource), [institutional knowledge](domain-property-institutional-resource).
+
 |**Class:**|<span style="font-weight:normal">[pmt:Domain](#class-domain)</span>|
 |---|---|
 |Definition:|The organisational sphere of knowledge and activity from which the data originates.|
@@ -156,7 +161,8 @@
   |Range:|[pmt:InstitutionalKnowledge](#class-institutional-knowledge)|
 
 ### Class: Institutional Knowledge
-|**Class:**|<span style="font-weight:normal">[pmt:InstitutionalKnowledge]()</span>|
+The following property is specific to this class: [defining domain](#property-defining-domain.
+|**Class:**|<span style="font-weight:normal">[pmt:InstitutionalKnowledge](#property-defining-domain)</span>|
 |---|---|
 |Definition:|Superclass of terminology within the organisation or domain that can be related to a [pmt:Resource](#class:-resource).|
 |Usage Note:|Examples include how the data relates to specifically defined terms, business objects or business processes.|
@@ -170,6 +176,10 @@
   |Usage Note:|It is possible that a piece of institutional knowledge is maintained on an organisation-wide level, rather than on a domain-level, but there should still be a domain responsible for maintining organisation-wide knowledge.|
 
 ### Class: Data Product
+The following properties are specific to this class: [data provider](#property-data-provider), [dataset](#property-dataset), [outputport](#data-product-property-output-port).
+
+The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#property-consumes),  [consumed by](#property-consumed-by), [estimated value](#property-estimated-value), [qualified agent](#property-qualified-agent).
+
 |**Class:**|<span style="font-weight:normal">[pmt:DataProduct](#class-data-product)</span>|
 |---|---|
 |Definition:|A data product, in a data mesh environment.|
@@ -199,6 +209,10 @@
   |Usage Note:|This is an inverse property of [pmt:exposesDataProduct](#property-exposes-data-product)|
 
 ### Class: Use Case
+The following property is specific to this class: [planned end date](#property-planned-end-date).
+
+The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#property-consumes), [estimated value](#property-estimated-value), [qualified agent](#property-qualified-agent).
+
 |**Class:**|<span style="font-weight:normal">[pmt:UseCase](#class-use-case)</span>|
 |---|---|
 |Definition:|A use case of a data product, in a data mesh environment.|
@@ -215,7 +229,11 @@
   |Usage Note:|If there is no foreseeable end date, the planned end date can be indefinite.|
 
 ### Class: Dataset
-Can be extended with spatial, temporal, bytesize, etc.
+The following properties are specific to this class: [distribution](#dataset-property-distribution), [logical](#dataset-property-logical-schema), [data product](#dataset-property-data-product).
+
+The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#property-consumes), [consumed by](#property-consumed-by), [estimated value](#property-estimated-value), [qualified agent](#property-qualified-agent).
+
+The following properties are inherited from the super-class [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
 
 |**Class:**|<span style="font-weight:normal">[pmt:Dataset](#class-dataset)</span>|
 |---|---|
@@ -246,10 +264,12 @@ Can be extended with spatial, temporal, bytesize, etc.
   
   
 ### Class Distribution
-Can add optional descriptors such as dcat:byteSyze, dct:spatial, dct:temporal
-|**Class:**|<span style="font-weight:normal">[dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)</span>|
+The following properties are specific to this class: [output port](#distribution-property-output-port), [data schema](#property-data-schema), [description](#distribution-property-description).
+
+|**Class:**|<span style="font-weight:normal">[pmt:Distribution](#class-distribution)</span>|
 |---|---|
 |Definition:|A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). |
+|Subclass-of:|[dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)|
 |Usage Note:|This represents a general availability of a dataset. It implies no information about the actual access method of the data, which is described in [pmt:OutputPort](#class-output-port).
 
   <h4 id="distribution-property-output-port">Output Port</h4>
@@ -265,18 +285,15 @@ Can add optional descriptors such as dcat:byteSyze, dct:spatial, dct:temporal
   |---|---|
   |Definition:|TODO: Define with Jaco|
   
-  #### Property: Description
+  <h4 id="distribution-property-description"> Property: Description</h4>
+  
   |**Property**|<span style="font-weight:normal">[dct:description](http://purl.org/dc/elements/1.1/description)</span>|
   |---|---|
   |Definition|A human-readable account of the distribution.|
-  
-  <h4 id="distribution-property-logical-schema">Property: Logical schema</h4>
-  
-  |**Property:**|<span style="font-weight:normal">[pmt:logicalSchema](#distribution-property-logical-schema)</span>|
-  |---|---|
-  |Definition:|TODO: Define with Jaco|
 
 ### Class: Output Port
+The following properties are specific to this class: [distribution](#output-port-property-distribution), [data product](#output-port-property-data-product), [data contract](#property-data-contract).
+
 |**Class:**|<span style="font-weight:normal">[pmt:OutputPort](#class-output-port)</span>|
 |---|---|
 |Definition:|An output port of a data product that exposes a specific representation.|
@@ -309,6 +326,7 @@ Can add optional descriptors such as dcat:byteSyze, dct:spatial, dct:temporal
   |Definition|The data contract associated with this output port.|
 
 ### Class: Data Contract
+This class will be extended in the future.
 |**Class:**|<span style="font-weight:normal">[pmt:DataContract](#class-data-contract)</span>|
 |---|---|
 |Definition:|A collection of enforceable promises concerning the delivery of a data product or use case.|
