@@ -1,15 +1,15 @@
 # ProMoTe
 
 ## TODO:
-- [ ] Critically reread everything.
 - [x] Check and update hyperlinks as needed.
-- [ ] Add data schema information in the right places w. Jaco.
+- [ ] Add data and logical schema information in the right places w. Jaco.
 - [ ] Add additional information surrounding data contracrts.
-- [ ] Add short descriptions before each class.
+- [x] Add short descriptions before each class.
 - [ ] Consider cardinality  with MAY, MUST, etc.
 - [ ] Add an intro that explains what this is and where we borrow from.`
 - [x] Add and update UML-diagram.
-- [x] Manually style all the tables to fit the width of the page.
+- [ ] Manually style all the tables to fit the width of the page.
+- [ ] Critically reread everything.
 
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
 
