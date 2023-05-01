@@ -8,7 +8,7 @@
 - [ ] Consider cardinality  with MAY, MUST, etc.
 - [ ] Add an intro that explains what this is and where we borrow from.`
 - [x] Add and update UML-diagram.
-- [ ] Manually style all the tables to fit the width of the page.
+- [x] Manually style all the tables to fit the width of the page.
 - [ ] Critically reread everything.
 
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
