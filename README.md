@@ -483,7 +483,7 @@ The following properties are specific to this class: [resource](#property-resour
 </table>
 
 ### Class: Institutional Knowledge
-The following property is specific to this class: [defining domain](#property-defining-domain.
+The following property is specific to this class: [defining domain](#property-defining-domain).
 
 <table>
 <thead>
