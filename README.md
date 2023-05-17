@@ -742,7 +742,7 @@ Use cases MUST have at least one [pmt:consumes](#resource-property-consumes) pro
 </table>
 
 
-  #### Property: Planned End Date
+#### Property: Planned End Date
 <table>
 <thead>
 <tr>
@@ -1101,6 +1101,111 @@ Data contracts SHOULD refer to policies that are used to manage this data produc
     <tr>
       <td>Usage Note:</td>
       <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External ontologies, such as ZOEK can be used to establish and describe data contracts.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Property: Provider Promise
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-provider-promise">pmt:providerPromise</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A promise made by the [pmt:dataProvider](#property-data-provider) to the data consumer that is captured in the data contract.</td>
+    </tr>
+    <tr>
+      <td>Usage Note:</td>
+      <td>Provider promises can also be captured in a [pmt:SLA](#property-service-level-agreement), [pmt:SLO](#property-service-level-objective) or in a [pmt:policy](#data-contract-property-promise)</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Property: Consumer Promise
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-consumer-promise">pmt:consumerPromise</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A promise required from the data consumer to the [pmt:dataProvider](#property-data-provider) that is captured in the data contract.</td>
+    </tr>
+    <tr>
+      <td>Usage Note:</td>
+      <td>Consumer promises can also be captured in a [pmt:SLA](#property-service-level-agreement) or in a [pmt:policy](#data-contract-property-promise)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="data-contract-property-policy">Property: Policy</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#data-contract-property-policy">pmt:promise</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>A policy that is explained and enforced in the data contract.</td>
+    </tr>
+      <td>Usage Note:</td>
+      <td>A wide variety of policies may exist that manage different aspects of the data product such as: computational policies, data product standardized protocols, and automated tests and automated monitoring.
+      </td>
+    </tr>
+    </tr>
+      <td>Usage Note:</td>
+      <td>Best practice is to use additional documentation to describe and manage the different types of policies that exist within a data mesh ecosystem.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Property: Service Level Agreement
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-service-level-agreement">pmt:SLA</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A service level agreement related to the delivery of data through the output port of this data contract.</td>
+    </tr>
+    <tr>
+      <td>Usage Note:</td>
+      <td>Best practice is to use additional documentation to describe and manage SLAs in the data mesh ecosystem.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Property: Service Level Objective
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-service-level-objective">pmt:SLO</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A service level objective related to the delivery of data through the output port of this data contract.</td>
+    </tr>
+    <tr>
+      <td>Usage Note:</td>
+      <td>Best practice is to use additional documentation to describe and manage SLOs in the data mesh ecosystem.</td>
     </tr>
   </tbody>
 </table>
