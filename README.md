@@ -1333,7 +1333,7 @@ Control Ports MUST have a [pmt:correspondingDataProduct](#control-port-correspon
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A control port through which a data product's policies can be managed by external parties such as the [pmt:dataProvider](#property-data-provider) or a federated governance team. </td>
+      <td>A control port through which a data product's policies can be managed by external parties such as the <a href="#property-data-provider">pmt:dataProvider</a> or a federated governance team. </td>
     </tr>
     <tr>
       <td>Usage Note:</td>
