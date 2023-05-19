@@ -875,7 +875,7 @@ The following properties are inherited from the super-class [dcat:Dataset](http:
 </table>
   
 ### Class Distribution
-The following properties are specific to this class: [output port](#distribution-property-output-port), [technical schema](#property-technical-schema)
+The following properties are specific to this class: [output port](#distribution-property-output-port), [physical schema](#property-physical-schema)
 
 Distributions SHOULD be extended with a <a href="#distribution-property-description">dct:description</a>.
 
@@ -927,22 +927,22 @@ Distributions SHOULD be extended with a <a href="#distribution-property-descript
 </tbody>
 </table>
   
-  #### Property: Technical Schema
+  #### Property: Physical Schema
   <table>
     <thead>
     <tr>
     <th width="240px"><strong>Property:</strong></th>
-    <th width="760px"><span style="font-weight:normal"><a href="#property-technical-schema">pmt:technicalSchema</a></span></th>
+    <th width="760px"><span style="font-weight:normal"><a href="#property-physical-schema">pmt:physicalSchema</a></span></th>
     </tr>
     </thead>
     <tbody>
     <tr>
     <td>Definition:</td>
-    <td>A description of the data structure and internal relations at the distribution-level.</td>
+    <td>A description of the implementation of the data structure at the distribution-level.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Technical schemas describe the structure of data of a specific distribution of a [pmt:Dataset](#class-dataset). Structural descriptions that hold true across all distributions of a dataset are described in [pmt:logicalSchema](#dataset-property-logical-schema)</td>
+      <td>Physical schemas describe the structure of data of a specific distribution of a [pmt:Dataset](#class-dataset) that lives in a specific IT infrastructure component. Structural descriptions that hold true across all distributions of a dataset are described in [pmt:logicalSchema](#dataset-property-logical-schema)</td>
     </tr>
     </tbody>
   </table>
