@@ -1100,7 +1100,7 @@ Data contracts SHOULD refer to policies that are used to manage this data produc
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External ontologies, such as ZOEK can be used to establish and describe data contracts.</td>
+      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the [SCC](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en) for transferring data outside of the EU, the [ISO9001](https://www.ciso-portal.com/iso-9001-cybersecurity/) for security purposes or [Paypal's standard](https://github.com/paypal/data-contract-template/blob/main/docs/README.md#Data-quality) for a data contract in a data mesh.</td>
     </tr>
   </tbody>
 </table>

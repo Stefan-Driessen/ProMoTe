@@ -875,7 +875,7 @@ The following properties are inherited from the super-class [dcat:Dataset](http:
 </table>
   
 ### Class Distribution
-The following properties are specific to this class: [output port](#distribution-property-output-port), [physical schema](#property-physical-schema)
+The following properties are specific to this class: [output port](#distribution-property-output-port), [technical schema](#property-technical-schema)
 
 Distributions SHOULD be extended with a <a href="#distribution-property-description">dct:description</a>.
 
@@ -927,22 +927,22 @@ Distributions SHOULD be extended with a <a href="#distribution-property-descript
 </tbody>
 </table>
   
-  #### Property: Physical Schema
+  #### Property: Technical Schema
   <table>
     <thead>
     <tr>
     <th width="240px"><strong>Property:</strong></th>
-    <th width="760px"><span style="font-weight:normal"><a href="#property-physical-schema">pmt:physicalSchema</a></span></th>
+    <th width="760px"><span style="font-weight:normal"><a href="#property-technical-schema">pmt:technicalSchema</a></span></th>
     </tr>
     </thead>
     <tbody>
     <tr>
     <td>Definition:</td>
-    <td>A description of the implementation of the data structure at the distribution-level.</td>
+    <td>A description of the data structure and internal relations at the distribution-level.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Physical schemas describe the structure of data of a specific distribution of a [pmt:Dataset](#class-dataset) that lives in a specific IT infrastructure component. Structural descriptions that hold true across all distributions of a dataset are described in [pmt:logicalSchema](#dataset-property-logical-schema)</td>
+      <td>Technical schemas describe the structure of data of a specific distribution of a [pmt:Dataset](#class-dataset). Structural descriptions that hold true across all distributions of a dataset are described in [pmt:logicalSchema](#dataset-property-logical-schema)</td>
     </tr>
     </tbody>
   </table>
@@ -1111,7 +1111,7 @@ Data contracts SHOULD refer to policies that are used to manage this data produc
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External ontologies, such as ZOEK can be used to establish and describe data contracts.</td>
+      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the [SCC](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en) for transferring data outside of the EU, the [ISO9001](https://www.ciso-portal.com/iso-9001-cybersecurity/) for security purposes or [Paypal's standard](https://github.com/paypal/data-contract-template/blob/main/docs/README.md#Data-quality) for a data contract in a data mesh.</td>
     </tr>
   </tbody>
 </table>
