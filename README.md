@@ -1,4 +1,29 @@
-# ProMoTe
+# $\textsc{ProMoTe}$
+
+### Disclaimer 
+$\textsc{ProMoTe}$ is under active development and evaluation from both the academic community and our industrial partners. If you intend to use this standard, feel free to reach out with questions and or feedback.
+
+### License
+This document is licensed under the [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) license.
+
+## Table of Contents
+...
+
+## Introduction
+$\textsc{ProMoTe}$ is a data Product Modelling Template for describing data products in a data mesh environment in a technology-independent manner. It was originally designed by researchers collaborating with large European companies that were looking to transition from a centralised, monolithic data landscape towards a more decentralised data-mesh (like) data landscape. $\textsc{ProMoTe}$ is grounded in academic literature and industrial practice. It extends well-established ontologies (primarily [DCAT](https://www.w3.org/TR/vocab-dcat-2/)) in a way that is intended to help create data products that achieve the DAUTNIVS+ non-functional requirements (Discoverability, Addressability, Understandability, Truthful & Trustworthy, Natively Accessible, Interoperable, Valuable and Secure + Feedback-Driven). The first eight of these are described extensively in the original data mesh [book](https://www.oreilly.com/library/view/data-mesh/9781492092384/), published by Dehghani in 2020, whereas being Feedback-Driven originates from a desire to develop data products in an agile manner, akin to how DevOps has become standard practice for software development.
+
+## $\textsc{ProMoTe}$ from a bird's-eye view
+The figure below shows an overview in UML of the classes described in $\textsc{ProMoTe}$ and the relations that can be used to describe them; the classes and relations are also described in detail below. At a high level $\textsc{ProMoTe}$ extends the [dcat:Resource](https://www.w3.org/TR/vocab-dcat-2/#Class:Resource) class with a subclass: [pmt:Resource](#class-resource). pmt:Resources come in three varieties: the [pmt:Dataset](#class-dataset), which is a subclass of [dct:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset); the [pmt:Dataproduct](#class-data-product), which is the architectural quantum of a data mesh and the main focus of $\textsc{ProMoTe}$; and the [pmt:UseCase](#class-use-case), that describes how the data is consumed.
+
+Each resource is managed within a [pmt:Domain](#class-domain) that maintains semantic domain knowledge in [pmt:InstitutionalKnowledge](#class-institutional-knowledge). Data products ingest data through one or more [pmt:InputPort](#class-input-port)s and are governed through policies that are managed through [pmt:ControlPort](#class-control-port)s. Finally, data products make available one or more [dct:Distribution](#class-distribution)s of [pmt:Dataset](#class-dataset)s through an associated [pmt:OutputPort](#class-output-port). For each output port, an associated [pmt:DataContract](#class-data-contract) establishes the conditions that apply when consuming the underlying data.
+
+### How to read and use this document.
+With $\textsc{ProMoTe}$, you can help define metadata models to describe data products in the data catalogue of your data mesh, or it can help you determine what a data product should look like within your organisation and whether different maturity levels that contain various aspects exist. An academic paper illustrating these use cases of $\textsc{ProMoTe}$ is underway. $\textsc{ProMoTe}$ is also available as an ontology in a .owl-file, which can be found here TODO.
+
+The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14) [RFC2119](https://tools.ietf.org/html/rfc2119) [RFC8174](https://tools.ietf.org/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
+
+### External Documents
+$\textsc{ProMoTe}$ is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that $\textsc{ProMoTe}$ can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
 
