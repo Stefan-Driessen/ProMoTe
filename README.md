@@ -7,7 +7,53 @@ ProMoTe is under active development and evaluation from both the academic commun
 This document is licensed under the [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) license.
 
 ## Table of Contents
-...
+
+<!-- toc -->
+
+* [Introduction](#introduction)
+* [ProMoTe from a bird's-eye view](#promote-from-a-birds-eye-view)
+* [How to read and use this document.](#how-to-read-and-use-this-document)
+* [External Documents](#external-documents)
+* [Specification](#specification)
+  * [Class: Resource](#class-resource)
+    * [Property: Title](#property-title)
+    * [Property: Resource Provider](#property-resource-provider)
+    * [Property: Identifier](#property-identifier)
+    * [Property: Date Issued](#property-date-issued)
+    * [Property: Date Modified](#property-date-modified)
+    * [Property: Resource Type](#property-resource-type)
+    * [Property: Keyword](#property-keyword)
+    * [Property: Language](#property-language)
+    * [Property: Newer Version](#property-newer-version)
+    * [Property: Older Version](#property-older-version)
+    * [Property: Estimated Value](#property-estimated-value)
+    * [Property: Qualified Attribution](#property-qualified-attribution)
+  * [Class: Domain](#class-domain)
+    * [Property: Resource](#property-resource)
+  * [Class: Institutional Knowledge](#class-institutional-knowledge)
+    * [Property: Defining Domain](#property-defining-domain)
+    * [Property: Knowledge URI](#property-knowledge-uri)
+  * [Class: Data Product](#class-data-product)
+    * [Property Data Provider](#property-data-provider)
+    * [Property: Dataset](#property-dataset)
+    * [Property: Input Port](#property-input-port)
+  * [Class: Use Case](#class-use-case)
+    * [Property: Planned End Date](#property-planned-end-date)
+  * [Class: Dataset](#class-dataset)
+  * [Class Distribution](#class-distribution)
+    * [Property: Technical Schema](#property-technical-schema)
+  * [Class: Output Port](#class-output-port)
+    * [Property: Consume Instructions](#property-consume-instructions)
+    * [Property: Data Contract](#property-data-contract)
+  * [Class: Data Contract](#class-data-contract)
+    * [Property: Provider Promise](#property-provider-promise)
+    * [Property: Consumer Promise](#property-consumer-promise)
+    * [Property: Service Level Agreement](#property-service-level-agreement)
+    * [Property: Service Level Objective](#property-service-level-objective)
+  * [Class: Input Port](#class-input-port)
+  * [Class: Control Port](#class-control-port)
+
+<!-- tocstop -->
 
 ## Introduction
 ProMoTe is a data Product Modelling Template for describing data products in a data mesh environment in a technology-independent manner. It was originally designed by researchers collaborating with large European companies that were looking to transition from a centralised, monolithic data landscape towards a more decentralised data-mesh (like) data landscape. ProMoTe is grounded in academic literature and industrial practice. It extends well-established ontologies (primarily [DCAT](https://www.w3.org/TR/vocab-dcat-2/)) in a way that is intended to help create data products that achieve the DAUTNIVS+ non-functional requirements (Discoverability, Addressability, Understandability, Truthful & Trustworthy, Natively Accessible, Interoperable, Valuable and Secure + Feedback-Driven). The first eight of these are described extensively in the original data mesh [book](https://www.oreilly.com/library/view/data-mesh/9781492092384/), published by Dehghani in 2020, whereas being Feedback-Driven originates from a desire to develop data products in an agile manner, akin to how DevOps has become standard practice for software development.
@@ -17,16 +63,17 @@ The figure below shows an overview in UML of the classes described in ProMoTe an
 
 Each resource is managed within a [pmt:Domain](#class-domain) that maintains semantic domain knowledge in [pmt:InstitutionalKnowledge](#class-institutional-knowledge). Data products ingest data through one or more [pmt:InputPort](#class-input-port)s and are governed through policies that are managed through [pmt:ControlPort](#class-control-port)s. Finally, data products make available one or more [dct:Distribution](#class-distribution)s of [pmt:Dataset](#class-dataset)s through an associated [pmt:OutputPort](#class-output-port). For each output port, an associated [pmt:DataContract](#class-data-contract) establishes the conditions that apply when consuming the underlying data.
 
-### How to read and use this document.
+## How to read and use this document.
 With ProMoTe, you can help define metadata models to describe data products in the data catalogue of your data mesh, or it can help you determine what a data product should look like within your organisation and whether different maturity levels that contain various aspects exist. An academic paper illustrating these use cases of ProMoTe is underway. ProMoTe is also available as an ontology in a .owl-file, which can be found here TODO.
 
 The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14) [RFC2119](https://tools.ietf.org/html/rfc2119) [RFC8174](https://tools.ietf.org/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
 
-### External Documents
+## External Documents
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
 
+## Specification
 ### Class: Resource
 The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
