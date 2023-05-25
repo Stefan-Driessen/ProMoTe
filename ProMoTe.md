@@ -9,7 +9,7 @@
 - [x] Add an intro that explains what this is and where we borrow from.`
 - [x] Add and update UML-diagram.
 - [x] Manually style all the tables to fit the width of the page.
-- [ ] Critically reread everything.
+- [x] Critically reread everything.
 
 ### Disclaimer 
 ProMoTe is under active development and evaluation from both the academic community and our industrial partners. If you intend to use this standard, feel free to reach out with questions and or feedback.
@@ -33,6 +33,7 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
     - [Class: Resource](#class-resource)
       - [Property: Title](#property-title)
       - [Property: Resource Provider](#property-resource-provider)
+      - [Property: Domain](#resource-property-domain)
       - [Property: Identifier](#property-identifier)
       - [Property: Description](#resource-property-description)
       - [Property: Date Issued](#property-date-issued)
@@ -40,36 +41,57 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
       - [Property: Resource Type](#property-resource-type)
       - [Property: Keyword](#property-keyword)
       - [Property: Language](#property-language)
+      - [Property: Institutional Knowledge](#resource-property-institutional-knowledge)
       - [Property: Newer Version](#property-newer-version)
       - [Property: Older Version](#property-older-version)
+      - [Property: Consumes](#resource-property-consumes)
+      - [Property: Source System](#resource-property-source-system)
+      - [Property: Is Consumed By](#resource-property-consumed-by)
       - [Property: Estimated Value](#property-estimated-value)
       - [Property: Qualified Attribution](#property-qualified-attribution)
     - [Class: Domain](#class-domain)
       - [Property: Resource](#property-resource)
+      - [Property: Domain Knowledge](#property-domain-knowledge)
     - [Class: Institutional Knowledge](#class-institutional-knowledge)
       - [Property: Defining Domain](#property-defining-domain)
       - [Property: Knowledge URI](#property-knowledge-uri)
     - [Class: Data Product](#class-data-product)
-      - [Property Data Provider](#property-data-provider)
+      - [Property: Data Provider](#property-data-provider)
       - [Property: Dataset](#property-dataset)
+      - [Property: Output Port](#data-product-property-output-port)
       - [Property: Input Port](#property-input-port)
+      - [Property: Control Port](#property-control-port)
     - [Class: Use Case](#class-use-case)
       - [Property: Planned End Date](#property-planned-end-date)
     - [Class: Dataset](#class-dataset)
+      - [Property: Distribution](#dataset-property-distribution)
+      - [Property: Logical Schema](#dataset-property-logical-schema)
+      - [Property: Data Product](#dataset-property-data-product)
     - [Class Distribution](#class-distribution)
+      - [Property: Output Port](#distribution-property-output-port)
       - [Property: Physical Schema](#property-physical-schema)
       - [Property: Description](#distribution-property-description)
     - [Class: Output Port](#class-output-port)
+      - [Property: Exposes Distribution](#property-exposes-distribution)
+      - [Property: Data Product](#property-exposes-data-product)
       - [Property: Consume Instructions](#property-consume-instructions)
+      - [Property: Consumed By](#output-port-property-consumed-by)
       - [Property: Data Contract](#property-data-contract)
     - [Class: Data Contract](#class-data-contract)
       - [Property: Provider Promise](#property-provider-promise)
       - [Property: Consumer Promise](#property-consumer-promise)
+      - [Property: Policy](#data-contract-property-policy)
       - [Property: Service Level Agreement](#property-service-level-agreement)
       - [Property: Service Level Objective](#property-service-level-objective)
     - [Class: Input Port](#class-input-port)
       - [Property: Description](#input-port-property-description)
+      - [Property: Data Product](#input-port-property-corresponding-data-product)
+      - [Property: Consumes](#input-port-property-consumes)
+      - [Property: Source System](#input-port-property-source-system)
     - [Class: Control Port](#class-control-port)
+      - [Property: Description](#control-port-property-description)
+      - [Property: Data Product](#control-port-property-corresponding-data-product)
+      - [Property: Managed Policy](#control-port-property-policy)
 
 <!-- tocstop -->
 
@@ -77,7 +99,7 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
 ProMoTe is a data Product Modelling Template for describing data products in a data mesh environment in a technology-independent manner. It was originally designed by researchers collaborating with large European companies that were looking to transition from a centralised, monolithic data landscape towards a more decentralised data-mesh (like) data landscape. ProMoTe is grounded in academic literature and industrial practice. It extends well-established ontologies (primarily [DCAT](https://www.w3.org/TR/vocab-dcat-2/)) in a way that is intended to help create data products that achieve the DAUTNIVS+ non-functional requirements (Discoverability, Addressability, Understandability, Truthful & Trustworthy, Natively Accessible, Interoperable, Valuable and Secure + Feedback-Driven). The first eight of these are described extensively in the original data mesh [book](https://www.oreilly.com/library/view/data-mesh/9781492092384/), published by Dehghani in 2020, whereas being Feedback-Driven originates from a desire to develop data products in an agile manner, akin to how DevOps has become standard practice for software development.
 
 ## ProMoTe from a bird's-eye view
-The figure below shows an overview in UML of the classes described in ProMoTe and the relations that can be used to describe them; the classes and relations are also described in detail below. At a high level ProMoTe extends the [dcat:Resource](https://www.w3.org/TR/vocab-dcat-2/#Class:Resource) class with a subclass: [pmt:Resource](#class-resource). pmt:Resources come in three varieties: the [pmt:Dataset](#class-dataset), which is a subclass of [dct:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset); the [pmt:Dataproduct](#class-data-product), which is the architectural quantum of a data mesh and the main focus of ProMoTe; and the [pmt:UseCase](#class-use-case), that describes how the data is consumed.
+The figure below shows an overview in UML of the classes described in ProMoTe and the relations that can be used to describe them; the classes and relations are also described in detail below. Additionally, whenever relevant, we describe how the different classes and properties contribute to achieving DAUTNIVS+ in the "Motivation" field. At a high level ProMoTe extends the [dcat:Resource](https://www.w3.org/TR/vocab-dcat-2/#Class:Resource) class with a subclass: [pmt:Resource](#class-resource). pmt:Resources come in three varieties: the [pmt:Dataset](#class-dataset), which is a subclass of [dct:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset); the [pmt:Dataproduct](#class-data-product), which is the architectural quantum of a data mesh and the main focus of ProMoTe; and the [pmt:UseCase](#class-use-case), that describes how the data is consumed. Data Products make available one or more data sets. Each data set has one or more physical representations (distributions), which are exposed throught output ports.
 
 Each resource is managed within a [pmt:Domain](#class-domain) that maintains semantic domain knowledge in [pmt:InstitutionalKnowledge](#class-institutional-knowledge). Data products ingest data through one or more [pmt:InputPort](#class-input-port)s and are governed through policies that are managed through [pmt:ControlPort](#class-control-port)s. Finally, data products make available one or more [dct:Distribution](#class-distribution)s of [pmt:Dataset](#class-dataset)s through an associated [pmt:OutputPort](#class-output-port). For each output port, an associated [pmt:DataContract](#class-data-contract) establishes the conditions that apply when consuming the underlying data.
 
@@ -891,12 +913,28 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
       <td><a href="#class-input-port">pmt:InputPort</a></td>
     </tr>
     <tr>
-      <td>Usage Note:</td>
-      <td>This is an inverse property of <a href="#property-exposes-data-product">pmt:exposesDataProduct</a></td>
-    </tr>
-    <tr>
       <td>Motivation:</td>
       <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Property: Control Port
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-input-port">pmt:inputPort</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A control port through which the policies of this data product are managed.</td>
+    </tr>
+    <tr>
+      <td>Range:</td>
+      <td><a href="#class-control-port">pmt:ControlPort</a></td>
     </tr>
   </tbody>
 </table>
