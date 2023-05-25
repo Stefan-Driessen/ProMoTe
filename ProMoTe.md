@@ -95,53 +95,53 @@ ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), w
 ### Class: Resource
 The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
-Resources MAY be extended with one or more [pmt:consumes](#resource-property-consumes), [pmt:sourceSystem](#resource-property-consumes), and [consumed by](#resource-property-consumed-by) relations.
+Resources MAY be extended with one or more [pmt:consumes](#resource-property-consumes), [pmt:sourceSystem](#resource-property-consumes), and [pmt:consumedBy](#resource-property-consumed-by) relations.
 
 <table>
   <thead>
     <tr>
-    <th width="240px"><strong>Class:</strong></th>
-    <th width="760px"><span style="font-weight:normal"><a href="#class-resource">pmt:Resource</a></span></th>
+      <th width="240px"><strong>Class:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#class-resource">pmt:Resource</a></span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-    <td>Definition:</td>
-    <td>A data product, or use case that can be described on a data catalog.</td>
+      <td>Definition:</td>
+      <td>A data product, or use case that can be described on a data catalog.</td>
     </tr>
     <tr>
-    <td>Subclass of:</td>
-    <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Resource">dcat:resource</a></td>
+      <td>Subclass of:</td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Resource">dcat:resource</a></td>
     </tr>
     <tr>
-    <td>Usage Note:</td>
-    <td>The class of all data sets, data products and use cases that exist and are registered in the data catalog of the data mesh.</td>
+      <td>Usage Note:</td>
+      <td>The class of all data sets, data products and use cases that exist and are registered in the data catalog of the data mesh.</td>
     </tr>
     <tr>
-    <td>Usage Note:</td>
-    <td>If the data catalog also contains information on data sevices, this class can be used in conjunction with <a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service">dcat:DataService</a>.</td>
+      <td>Usage Note:</td>
+      <td>If the data catalog also contains information on data sevices, this class can be used in conjunction with <a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service">dcat:DataService</a>.</td>
     </tr>
   </tbody>
 </table>
 
-  #### Property: Title
- <table>
-<thead>
-<tr>
-<th width="240px"><strong>Property:</strong></th>
-<th width="760px"><span style="font-weight:normal"><a href="http://purl.org/dc/terms/title">dct:title</a></span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Definition:</td>
-<td>A name given to the item.</td>
-</tr>
-<tr>
-<td>Range:</td>
-<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a></td>
-</tr>
-</tbody>
+#### Property: Title
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="http://purl.org/dc/terms/title">dct:title</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A name given to the item.</td>
+    </tr>
+    <tr>
+      <td>Range:</td>
+      <td><a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a></td>
+    </tr>
+  </tbody>
 </table>
 
   #### Property: Resource Provider
