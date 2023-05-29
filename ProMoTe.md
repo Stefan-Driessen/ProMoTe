@@ -1,15 +1,8 @@
 # ProMoTe
 
 ## TODO:
-- [x] Check and update hyperlinks as needed.
-- [x] Add data and logical schema information in the right places w. Jaco.
-- [x] Add additional information surrounding data contracrts.
-- [x] Add short descriptions before each class.
-- [x] Consider cardinality  with MAY, MUST, etc.
-- [x] Add an intro that explains what this is and where we borrow from.`
-- [x] Add and update UML-diagram.
-- [x] Manually style all the tables to fit the width of the page.
-- [x] Critically reread everything.
+- [ ] Add worked out example.
+- [ ] Update cardinality based on maturity levels.
 
 ### Disclaimer 
 ProMoTe is under active development and evaluation from both the academic community and our industrial partners. If you intend to use this standard, feel free to reach out with questions and or feedback.
@@ -74,6 +67,7 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
     - [Class: Output Port](#class-output-port)
       - [Property: Exposes Distribution](#property-exposes-distribution)
       - [Property: Data Product](#property-exposes-data-product)
+      - [Property: endpointURL](#property-endpoint-url)
       - [Property: Consume Instructions](#property-consume-instructions)
       - [Property: Consumed By](#output-port-property-consumed-by)
       - [Property: Data Contract](#property-data-contract)
@@ -1278,7 +1272,31 @@ The following properties are specific to this class: [distribution](#output-port
     </tr>
   </tbody>
 </table>
-  
+
+#### Property: Endpoint URI
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property=consume-instructions">pmt:consumeInstructions</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>A unique URI for the endpoint of this output port.</td>
+    </tr>
+    <tr>
+      <td>See Also of:</td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_url">dcat:endpointURL</a></td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Unique endpoints contribute to Addressability and Native Accessibility.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### Property: Consume Instructions
 <table>
   <thead>
@@ -1291,6 +1309,10 @@ The following properties are specific to this class: [distribution](#output-port
     <tr>
       <td>Definition</td>
       <td>Human-readable instructions on how to consume data through this output port.</td>
+    </tr>
+    <tr>
+      <td>SubProperty of:</td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_description">dcat:endpointDescription</a></td>
     </tr>
     <tr>
       <td>Usage note:</td>

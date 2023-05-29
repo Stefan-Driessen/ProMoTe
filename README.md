@@ -63,6 +63,7 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
     - [Class: Output Port](#class-output-port)
       - [Property: Exposes Distribution](#property-exposes-distribution)
       - [Property: Data Product](#property-exposes-data-product)
+      - [Property: endpointURL](#property-endpoint-url)
       - [Property: Consume Instructions](#property-consume-instructions)
       - [Property: Consumed By](#output-port-property-consumed-by)
       - [Property: Data Contract](#property-data-contract)
@@ -1267,7 +1268,31 @@ The following properties are specific to this class: [distribution](#output-port
     </tr>
   </tbody>
 </table>
-  
+
+#### Property: Endpoint URI
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property=consume-instructions">pmt:consumeInstructions</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>A unique URI for the endpoint of this output port.</td>
+    </tr>
+    <tr>
+      <td>See Also of:</td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_url">dcat:endpointURL</a></td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Unique endpoints contribute to Addressability and Native Accessibility.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### Property: Consume Instructions
 <table>
   <thead>
@@ -1280,6 +1305,10 @@ The following properties are specific to this class: [distribution](#output-port
     <tr>
       <td>Definition</td>
       <td>Human-readable instructions on how to consume data through this output port.</td>
+    </tr>
+    <tr>
+      <td>SubProperty of:</td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_description">dcat:endpointDescription</a></td>
     </tr>
     <tr>
       <td>Usage note:</td>
