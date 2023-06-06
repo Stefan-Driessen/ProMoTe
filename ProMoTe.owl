@@ -1,0 +1,476 @@
+@prefix : <https://github.com/Stefan-Driessen/ProMoTe#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/Stefan-Driessen/ProMoTe> .
+
+<https://github.com/Stefan-Driessen/ProMoTe> rdf:type owl:Ontology ;
+                                              rdfs:isDefinedBy "https://github.com/Stefan-Driessen/ProMoTe" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://github.com/Stefan-Driessen/ProMoTe#pmt:motivation
+:pmt:motivation rdf:type owl:AnnotationProperty .
+
+
+###  https://vocab.org/vann/#usageNote
+<https://vocab.org/vann/#usageNote> rdf:type owl:AnnotationProperty ;
+                                    rdfs:label "vann:usageNote" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://github.com/Stefan-Driessen/ProMoTe#control-port-property-policy
+:control-port-property-policy rdf:type owl:ObjectProperty ;
+                              rdfs:domain :class-control-port ;
+                              rdfs:comment "A policy that can be managed through this control port." ;
+                              rdfs:label "pmt:managedPolicy" ;
+                              <https://vocab.org/vann/#usageNote> "A wide variety of policies may exist that manage different aspects of the data product such as: computational policies, data product standardized protocols, and automated tests and automated monitoring." ,
+                                                                  "Best practice is to use additional documentation to describe and manage the different types of policies that exist within a data mesh ecosystem." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#data-contract-property-policy
+:data-contract-property-policy rdf:type owl:ObjectProperty ;
+                               rdfs:domain :class-data-contract ;
+                               rdfs:comment "A policy that is explained and enforced in the data contract." ;
+                               rdfs:label "pmt:policy" ;
+                               :pmt:motivation "Policies can contribute to one or more of Understandability, Truthfulness & Trustworthiness and Security." ;
+                               <https://vocab.org/vann/#usageNote> "A wide variety of policies may exist that manage different aspects of the data product such as: computational policies, data product standardized protocols, and automated tests and automated monitoring." ,
+                                                                   "Best practice is to use additional documentation to describe and manage the different types of policies that exist within a data mesh ecosystem." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#data-product-property-output-port
+:data-product-property-output-port rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :property-exposes-data-product ;
+                                   rdfs:domain :class-data-product ;
+                                   rdfs:range :class-output-port ;
+                                   rdfs:comment "An output port that exposes a distribution of this data product." ;
+                                   rdfs:label "pmt:outputPort" ;
+                                   :pmt:motivation "Output ports make different distributions of a data product's datasets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#dataset-property-logical-schema
+:dataset-property-logical-schema rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :class-dataset ;
+                                 rdfs:comment "A description of the data structure and internal relations at the dataset-level." ;
+                                 rdfs:label "pmt:logicalSchema" ;
+                                 :pmt:motivation "Logical schemas contribute to Understandability and Interoperability." ;
+                                 <https://vocab.org/vann/#usageNote> "Logical schemas describe the structure of data that holds true across different distributions of the dataset. Structural descriptions of different distributions are described in pmt:technicalSchema." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#distribution-property-output-port
+:distribution-property-output-port rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :output-port-property-distribution ;
+                                   rdfs:domain :class-distribution ;
+                                   rdfs:range :class-output-port ;
+                                   rdfs:comment "An output port that exposes this distribution." ;
+                                   rdfs:label "pmt:correspondingOutputPort" ;
+                                   :pmt:motivation "Output ports make different distributions of a data product's datasets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#input-port-property-corresponding-data-product
+:input-port-property-corresponding-data-product rdf:type owl:ObjectProperty ;
+                                                rdfs:domain [ rdf:type owl:Class ;
+                                                              owl:unionOf ( :class-control-port
+                                                                            :class-input-port
+                                                                          )
+                                                            ] ;
+                                                rdfs:comment "The data product of this input port." ;
+                                                rdfs:label "pmt:correspondingDataProduct" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#output-port-property-distribution
+:output-port-property-distribution rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :class-output-port ;
+                                   rdfs:range :class-distribution ;
+                                   rdfs:comment "The distribution that is exposed for consumption through this output port." ;
+                                   rdfs:label "pmt:exposesDistribution" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-consume-instructions
+:property-consume-instructions rdf:type owl:ObjectProperty ;
+                               rdfs:domain :class-output-port ;
+                               rdfs:comment "Human-readable instructions on how to consume data through this output port." ;
+                               rdfs:label "pmt:consumeInstructions" ;
+                               rdfs:seeAlso "https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_description" ;
+                               :pmt:motivation "Consume instructions help with making the data Natively Accessible, and, potentially, Interoperable." ;
+                               <https://vocab.org/vann/#usageNote> "Consume instructions are the informal equivalent of the pmt:dataContract, which captures the formal promises and expectations of this output port." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-consumer-promise
+:property-consumer-promise rdf:type owl:ObjectProperty ;
+                           rdfs:domain :class-data-contract ;
+                           rdfs:comment "A promise required from the data consumer to the pmt:dataProvider that is captured in the data contract." ;
+                           rdfs:label "pmt:consumerPromise" ;
+                           :pmt:motivation "Consumer promises contribute to Security." ;
+                           <https://vocab.org/vann/#usageNote> "Consumer promises can also be captured in a pmt:SLA or in a pmt:policy." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-control-port
+:property-control-port rdf:type owl:ObjectProperty ;
+                       rdfs:domain :class-data-product ;
+                       rdfs:range :class-control-port ;
+                       rdfs:comment "A control port through which the policies of this data product are managed." ;
+                       rdfs:label "pmt:controlPort" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-data-contract
+:property-data-contract rdf:type owl:ObjectProperty ;
+                        rdfs:domain :class-output-port ;
+                        rdfs:comment "The data contract associated with this output port." ;
+                        rdfs:label "pmt:dataContract" ;
+                        :pmt:motivation "Data Contracts contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-data-provider
+:property-data-provider rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :property-resource-provider ;
+                        rdfs:domain :class-data-product ;
+                        rdfs:comment "The actor responsible for providing the data product." ;
+                        rdfs:label "pmt:dataProvider" ;
+                        :pmt:motivation "Data providers are essential to achieve Addressability, as well as making the development of the resource Feedback-Driven." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-dataset
+:property-dataset rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :property-offered-in-data-product ;
+                  rdfs:domain :class-data-product ;
+                  rdfs:range :class-dataset ;
+                  rdfs:comment "A dataset that is offered through this data product." ;
+                  rdfs:label "pmt:dataSet" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-defining-domain
+:property-defining-domain rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :property-domain-knowledge ;
+                          rdfs:domain :class-institutional-knowledge ;
+                          rdfs:comment "The domain that defines and maintains the institutional knowledge." ;
+                          rdfs:label "pmt:definingDomain" ;
+                          <https://vocab.org/vann/#usageNote> "It is possible that a piece of institutional knowledge is maintained on an organisation-wide level, rather than on a domain-level, but there should still be a domain responsible for maintining organisation-wide knowledge." ,
+                                                              "This is an inverse property of pmt:institutionalKnowledge" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-domain
+:property-domain rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :property-resource ;
+                 rdfs:domain :class-resource ;
+                 rdfs:range :class-domain ;
+                 rdfs:comment "The domain from which the resource stems." ;
+                 rdfs:label "pmt:domain" ;
+                 :pmt:motivation "Domains make resources more Addressable and Discoverable." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-domain-knowledge
+:property-domain-knowledge rdf:type owl:ObjectProperty ;
+                           rdfs:domain :class-domain ;
+                           rdfs:range :class-institutional-knowledge ;
+                           rdfs:comment "Existing terminology within the organisation or domain that relates to a pmt:Resource." ;
+                           rdfs:label "pmt:domainKnowledge" ;
+                           :pmt:motivation "Institutional knowledge contributes to Discoverability, Understandability and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-estimated-value
+:property-estimated-value rdf:type owl:ObjectProperty ;
+                          rdfs:domain :class-resource ;
+                          rdfs:comment "An indication of the value the resource provides for the company." ;
+                          rdfs:label "pmt:estimatedValue" ;
+                          :pmt:motivation "Explicitly including an estimated value is necessary for establishing that a resource is Valuable." ;
+                          <https://vocab.org/vann/#usageNote> "Ideally the estimated value is backed by a quantifier, such as money or manhours saved. Otherwise a qualitative description of the value provided can be provided." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-exposes-data-product
+:property-exposes-data-product rdf:type owl:ObjectProperty ;
+                               rdfs:domain :class-output-port ;
+                               rdfs:range :class-data-product ;
+                               rdfs:comment "The data product that this output port exposes for consumption." ;
+                               rdfs:label "pmt:exposesDataProduct" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-input-port
+:property-input-port rdf:type owl:ObjectProperty ;
+                     rdfs:domain :class-data-product ;
+                     rdfs:range :class-input-port ;
+                     rdfs:comment "An input port through which data is ingested into this data product." ;
+                     rdfs:label "pmt:inputPort" ;
+                     :pmt:motivation "Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-knowledge-uri
+:property-knowledge-uri rdf:type owl:ObjectProperty ;
+                        rdfs:domain :class-institutional-knowledge ;
+                        rdfs:comment "A link to documentation about the institutional knowledge." ;
+                        rdfs:label "pmt:knowledgeURI" ;
+                        <https://vocab.org/vann/#usageNote> "Best practice is to store institutional knowledge in a business glossary or domain ontologies." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-newer-version
+:property-newer-version rdf:type owl:ObjectProperty ;
+                        rdfs:domain :class-resource ;
+                        rdfs:range :class-resource ;
+                        rdfs:comment "A newer version of the data product, which will eventually replace this version." ;
+                        rdfs:label "pmt:hasNewVersion" ;
+                        rdfs:seeAlso "http://purl.org/dc/terms/hasVersion" ;
+                        :pmt:motivation "Versioning in general contributes to Discoverability, Addressability, Understandability, Truthfulness & Trustworthiness, and Interoperability." ;
+                        <https://vocab.org/vann/#usageNote> "Recommended usage is to describe until when this resource is available in the dct:description property." ,
+                                                            "This property is used for versioning, keeping an older version available helps consumers of the resources by giving them time to migrate to the new resource." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-offered-in-data-product
+:property-offered-in-data-product rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :class-dataset ;
+                                  rdfs:range :class-data-product ;
+                                  rdfs:comment "A data product that makes this dataset available for consumption." ;
+                                  rdfs:label "pmt:offeredInDataProduct" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-older-version
+:property-older-version rdf:type owl:ObjectProperty ;
+                        rdfs:domain :class-resource ;
+                        rdfs:range :class-resource ;
+                        rdfs:comment "An older version of the data product, which this version is replacing." ;
+                        rdfs:label "pmt:hasOldVersion" ;
+                        rdfs:seeAlso "http://purl.org/dc/terms/isVersionOf" ;
+                        :pmt:motivation "Versioning in general contributes to Discoverability, Addressability, Understandability, Truthfulness & Trustworthiness, and Interoperability." ;
+                        <https://vocab.org/vann/#usageNote> "Recommended usage is to describe when the old resource is no longer available in the dct:description property." ,
+                                                            "This property is used for versioning, keeping an older version available helps consumers of the resources by giving them time to migrate to the new resource." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-physical-schema
+:property-physical-schema rdf:type owl:ObjectProperty ;
+                          rdfs:domain :class-distribution ;
+                          rdfs:comment "A description of the data structure and internal relations at the distribution-level." ;
+                          rdfs:label "pmt:physicalSchema" ;
+                          :pmt:motivation "Physical schemas help with Understandability and Interoperability." ;
+                          <https://vocab.org/vann/#usageNote> "Physical schemas describe the structure of data of a specific distribution of a pmt:Dataset. Structural descriptions that hold true across all distributions of a dataset are described in pmt:logicalSchema." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-planned-end-date
+:property-planned-end-date rdf:type owl:ObjectProperty ;
+                           rdfs:domain :class-use-case ;
+                           rdfs:comment "The date by which the use case plans to stop consuming data products." ;
+                           rdfs:label "pmt:plannedEndDate" ;
+                           :pmt:motivation "Planned end dates of use cases are important for establishing Value and achieving Feedback-Driven development." ;
+                           <https://vocab.org/vann/#usageNote> "If there is no foreseeable end date, the planned end date can be indefinite." ,
+                                                               "Keeping track of a planned end date helps with data product maintenance. There is no need to put effort into maintaining a data product if there are no active use cases." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-provider-promise
+:property-provider-promise rdf:type owl:ObjectProperty ;
+                           rdfs:domain :class-data-contract ;
+                           rdfs:comment "A promise made by the pmt:dataProvider to the data consumer that is captured in the data contract." ;
+                           rdfs:label "pmt:providerPromise" ;
+                           :pmt:motivation "Provider promises contribute to Truthfulness & Trustworthiness, Native Accessibility and Security." ;
+                           <https://vocab.org/vann/#usageNote> "Provider promises can also be captured in a pmt:SLA, pmt:SLO or in a pmt:policy." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-resource
+:property-resource rdf:type owl:ObjectProperty ;
+                   rdfs:domain :class-domain ;
+                   rdfs:range :class-resource ;
+                   rdfs:comment "A resource offered in the domain." ;
+                   rdfs:label "pmt:hasResource" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-resource-provider
+:property-resource-provider rdf:type owl:ObjectProperty ;
+                            rdfs:domain :class-resource ;
+                            rdfs:comment "The agent responsible for providing the resource." ;
+                            rdfs:label "pmt:resourceProvider" ;
+                            :pmt:motivation "Resource providers are necessary to achieve Addressability, as well as making the development of the resource Feedback-Driven." ;
+                            <https://vocab.org/vann/#usageNote> "Resource Providers are either data product providers or use case providers." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-resource-type
+:property-resource-type rdf:type owl:ObjectProperty ;
+                        rdfs:domain :class-resource ;
+                        rdfs:comment "The type of the resource." ;
+                        rdfs:label "pmt:type" ;
+                        rdfs:seeAlso "http://purl.org/dc/terms/type" ;
+                        :pmt:motivation "Describing the type of resource contributes to Discoverability and Understandability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-service-level-agreement
+:property-service-level-agreement rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :class-data-contract ;
+                                  rdfs:comment "A service level agreement related to the delivery of data through the output port of this data contract." ;
+                                  rdfs:label "pmt:SLA" ;
+                                  :pmt:motivation "Service level agreements contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security." ;
+                                  <https://vocab.org/vann/#usageNote> "Best practice is to use additional documentation to describe and manage SLAs in the data mesh ecosystem." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#property-service-level-objective
+:property-service-level-objective rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :class-data-contract ;
+                                  rdfs:comment "A service level objective related to the delivery of data through the output port of this data contract." ;
+                                  rdfs:label "pmt:SLO" ;
+                                  :pmt:motivation "Service level objectives contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security." ;
+                                  <https://vocab.org/vann/#usageNote> "Best practice is to use additional documentation to describe and manage SLOs in the data mesh ecosystem." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#resource-property-consumed-by
+:resource-property-consumed-by rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :resource-property-consumes ;
+                               rdfs:domain [ rdf:type owl:Class ;
+                                             owl:unionOf ( :class-output-port
+                                                           :class-resource
+                                                         )
+                                           ] ;
+                               rdfs:range [ rdf:type owl:Class ;
+                                            owl:unionOf ( :class-input-port
+                                                          :class-use-case
+                                                        )
+                                          ] ;
+                               rdfs:comment "An input port of a data product or a use case that consumes this data product." ;
+                               rdfs:label "pmt:isConsumedBy" ;
+                               :pmt:motivation "Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." ;
+                               <https://vocab.org/vann/#usageNote> "Linking consuming data products helps establish data lineage, whereas linking use cases to data products improves the discoverability, understandability of the data product and helps establish a pmt:estimatedValue" .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#resource-property-consumes
+:resource-property-consumes rdf:type owl:ObjectProperty ;
+                            rdfs:domain [ rdf:type owl:Class ;
+                                          owl:unionOf ( :class-input-port
+                                                        :class-resource
+                                                      )
+                                        ] ;
+                            rdfs:range [ rdf:type owl:Class ;
+                                         owl:unionOf ( :class-output-port
+                                                       :class-resource
+                                                     )
+                                       ] ;
+                            rdfs:comment "A resource or output port of a data product which is consumed to create or maintain this resource or input port." ;
+                            rdfs:label "pmt:consumes" ;
+                            :pmt:motivation "Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#resource-property-institutional-knowledge
+:resource-property-institutional-knowledge rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :class-resource ;
+                                           rdfs:range :class-institutional-knowledge ;
+                                           rdfs:comment "Existing terminology within the organisation or domain that relates to a pmt:Resource." ;
+                                           rdfs:label "pmt:institutionalKnowledge" ;
+                                           :pmt:motivation "Institutional knowledge contributes to Discoverability, Understandability and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#resource-property-source-system
+:resource-property-source-system rdf:type owl:ObjectProperty ;
+                                 rdfs:domain [ rdf:type owl:Class ;
+                                               owl:unionOf ( :class-dataset
+                                                             :class-distribution
+                                                             :class-input-port
+                                                           )
+                                             ] ;
+                                 rdfs:comment "An IT system that generates or stores data in this resource, such as a speficic data warehouse, data lake, or database." ;
+                                 rdfs:label "pmt:sourceSystem" ;
+                                 :pmt:motivation "Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." ;
+                                 <https://vocab.org/vann/#usageNote> "This property can be used to describe either where a specific data set or distribution lives, or give information on the input port of a data product." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-control-port
+:class-control-port rdf:type owl:Class ;
+                    rdfs:comment "A control port through which a data product's policies can be managed by external parties such as the pmt:dataProvider or a federated governance team." ;
+                    rdfs:label "pmt:ControlPort" ;
+                    <https://vocab.org/vann/#usageNote> "Since control ports are highly dependent on the infrastructure provided in the data mesh, as well as the policies employed in the organisation, description of control ports SHOULD be extended with external documentation as the situation requires." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-data-contract
+:class-data-contract rdf:type owl:Class ;
+                     rdfs:comment "A collection of enforceable promises concerning the delivery of a data product or use case." ;
+                     rdfs:label "pmt:DataContract" ;
+                     :pmt:motivation "Data Contracts contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security." ;
+                     <https://vocab.org/vann/#usageNote> "Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the SCC for transferring data outside of the EU, ISO9001 for security purposes or Paypal's standard for a data contract in a data mesh." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-data-product
+:class-data-product rdf:type owl:Class ;
+                    rdfs:subClassOf :class-resource ;
+                    rdfs:comment "A data product, in a data mesh environment." ;
+                    rdfs:label "pmt:DataProduct" ;
+                    <https://vocab.org/vann/#usageNote> "The class of all data products that exist and are registered in the data catalog of the data mesh." ,
+                                                        "This class describes all everything that holds true across all underlying datasets, distributions, and output ports in the data product." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-dataset
+:class-dataset rdf:type owl:Class ;
+               rdfs:subClassOf :class-resource ;
+               rdfs:comment "A collection of data that can be described by a single logical schema and be consumed in one or more techincal representations (distributions) through one or more output ports." ;
+               rdfs:label "pmt:Dataset" ;
+               rdfs:seeAlso "http://www.w3.org/ns/dcat#Dataset" ;
+               <https://vocab.org/vann/#usageNote> "A dataset can exist as a precursor to a data product and evolve to become a fully mature data produt over time. Not every data set needs to become a fully function data product however. Additionally, it is possible for a single data product to provide (access to) multiple datasets." ,
+                                                   "This class describes the conceptual dataset. One or more representations might be available, with differing schematic layouts and formats or serializations." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-distribution
+:class-distribution rdf:type owl:Class ;
+                    rdfs:comment "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)." ;
+                    rdfs:label "pmt:Distribution" ;
+                    rdfs:seeAlso "http://www.w3.org/ns/dcat#Distribution" ;
+                    <https://vocab.org/vann/#usageNote> "This represents a general availability of a dataset. It implies no information about the actual access method of the data, which is described in pmt:OutputPort." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-domain
+:class-domain rdf:type owl:Class ;
+              rdfs:comment "The organisational sphere of knowledge and activity from which the data originates." ;
+              rdfs:label "pmt:Domain" ;
+              :pmt:motivation "Domains make resources more Addressable and Discoverable." ;
+              <https://vocab.org/vann/#usageNote> "Aligning data and software with domains is one of the primary concerns of building a data mesh and domain-driven design in general." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-input-port
+:class-input-port rdf:type owl:Class ;
+                  rdfs:comment "An input port of a data product which relates to a source system or an output port of another data product." ;
+                  rdfs:label "pmt:InputPort" ;
+                  :pmt:motivation "Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-institutional-knowledge
+:class-institutional-knowledge rdf:type owl:Class ;
+                               rdfs:comment "Superclass of terminology within the organisation or domain that can be related to a pmt:Resource." ;
+                               rdfs:label "pmt:InstitutionalKnowledge" ;
+                               :pmt:motivation "Institutional knowledge contributes to Discoverability, Understandability and Interoperability." ;
+                               <https://vocab.org/vann/#usageNote> "Examples include how the data relates to specifically defined terms, business objects or business processes." ,
+                                                                   "Recommended usage is to organise institutional knowledge in (existing) ontologies or business glossaries." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-output-port
+:class-output-port rdf:type owl:Class ;
+                   rdfs:comment "An output port of a data product that exposes a specific representation." ;
+                   rdfs:label "pmt:OutputPort" ;
+                   :pmt:motivation "Output ports are necessary for achieving Native Accessability." ;
+                   <https://vocab.org/vann/#usageNote> "Output ports represent the various ways in which data products expose their data. For example, data can be made available through a download link, a SQL-based API or a kafka-stream." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-resource
+:class-resource rdf:type owl:Class ;
+                owl:disjointUnionOf ( :class-data-product
+                                      :class-dataset
+                                      :class-use-case
+                                    ) ;
+                rdfs:comment "A data product, dataset or use case that can be described on a data catalog." ,
+                             "The class of all data sets, data products and use cases that exist and are registered in the data catalog of the data mesh." ;
+                rdfs:label "pmt:Resource" ;
+                rdfs:seeAlso "https://www.w3.org/TR/vocab-dcat-2/#Class:Resource" ;
+                <https://vocab.org/vann/#usageNote> "If the data catalog also contains information on data sevices, this class can be used in conjunction with dcat:DataService." .
+
+
+###  https://github.com/Stefan-Driessen/ProMoTe#class-use-case
+:class-use-case rdf:type owl:Class ;
+                rdfs:subClassOf :class-resource ;
+                rdfs:comment "A use case of a data product, in a data mesh environment." ;
+                rdfs:label "pmt:UseCase" ;
+                :pmt:motivation "Explicitly tracking use cases contributes to Discoverability, Understandability, Interoperability, Value and Feedback-Driven development." ;
+                <https://vocab.org/vann/#usageNote> "If use cases generate new data, they can, over time also lead to new data products." ,
+                                                    "This is the class of all use cases that consume data products and are registered in the data catalog of the data mesh." .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
