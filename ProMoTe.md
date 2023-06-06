@@ -113,7 +113,7 @@ The following properties are specific to this class: [title](#property-title), [
 
 <!-- Resources MUST have a [pmt:domain](#resource-property-domain") and a [dct:identifier](#property-identifier). Resources SHOULD have a [pmt:resourceProvider](#property-resource-provider).
 
-Resources MAY be extended with one or more [pmt:consumes](#resource-property-consumes), [pmt:sourceSystem](#resource-property-consumes), and [consumed by](#resource-property-consumed-by) relations. -->
+Resources MAY be extended with one or more [pmt:consumes](#resource-property-consumes), [pmt:sourceSystem](#resource-property-consumes), and [consumed by](#resource-property-consumed-by) relations. Depending on the application, resources MAY be extended with a [dct:catalogRecord](https://www.w3.org/TR/vocab-dcat-2/#Class:Catalog_Record)-->
 
 <table>
   <thead>
@@ -125,14 +125,14 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A data product, or use case that can be described on a data catalog.</td>
+      <td>A data product, dataset or use case that can be described on a data catalog.</td>
     </tr>
     <tr>
       <td>Subclass of:</td>
-      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Resource">dcat:resource</a></td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Resource">dcat:Resource</a></td>
     </tr>
     <tr>
-      <td>Usage Note:</td>
+      <td>Comment</td>
       <td>The class of all data sets, data products and use cases that exist and are registered in the data catalog of the data mesh.</td>
     </tr>
     <tr>
@@ -203,7 +203,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property-domain">pmt:domain</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#resource-property-domain">pmt:domain</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -505,10 +505,6 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
       </tr>
       <tr>
         <td>Usage Note:</td>
-        <td>This property can refer to other resources on the data catalog or to source systems that are not onboarded on the catalog.</td>
-      </tr>
-      <tr>
-        <td>Usage Note:</td>
         <td>This property is an inverse property of <a href="#resource-property-consumed-by">pmt:isConsumedBy</a></td>
       </tr>
       <tr>
@@ -669,6 +665,10 @@ The following properties are specific to this class: [resource](#property-resour
       <td>A resource offered in the domain.</td>
     </tr>
     <tr>
+      <td>Range:</td>
+      <td>[pmt:Resource](#class-resource)</td>
+    </tr>
+    <tr>
       <td>Usage Note:</td>
       <td>This is an inverse property of <a href="#resource-domain">pmt:domain</a></td>
     </tr>
@@ -800,7 +800,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Subclass of:</td>
-      <td><a href="#class-resource">pmt:resource</a></td>
+      <td><a href="#class-resource">pmt:Resource</a></td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -918,7 +918,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property-input-port">pmt:inputPort</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-control-port">pmt:controlPort</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -954,7 +954,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Subclass of:</td>
-      <td><a href="#class-resource">pmt:resource</a></td>
+      <td><a href="#class-resource">pmt:Resource</a></td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -1023,7 +1023,7 @@ The following properties are inherited from the super-class [dcat:Dataset](http:
     </tr>
     <tr>
       <td>Sub-class of:</td>
-      <td><a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a></td>
+      <td><a href="#class-resource">pmt:Resource</a></td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -1067,7 +1067,7 @@ The following properties are inherited from the super-class [dcat:Dataset](http:
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Logical schemas describe the structure of data that holds true across different distributions of the dataset. Structural descriptions of different distributions are described in [pmt:technicalSchema](#property-technical-schema)</td>
+      <td>Logical schemas describe the structure of data that holds true across different distributions of the dataset. Structural descriptions of different distributions are described in <a href="#property-technical-schema">pmt:technicalSchema</a></td>
     </tr>
     <tr>
       <td>Motivation:</td>
@@ -1172,7 +1172,7 @@ The following property is shared with the [pmt:DataProduct](#class-data-product)
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Physical schemas describe the structure of data of a specific distribution of a [pmt:Dataset](#class-dataset). Structural descriptions that hold true across all distributions of a dataset are described in [pmt:logicalSchema](#dataset-property-logical-schema)</td>
+      <td>Physical schemas describe the structure of data of a specific distribution of a <a href="#class-dataset">pmt:Dataset</a>. Structural descriptions that hold true across all distributions of a dataset are described in <a href="#dataset-property-logical-schema">pmt:logicalSchema</a></td>
   </tr>
   <tr>
       <td>Motivation:</td>
@@ -1268,7 +1268,7 @@ The following properties are specific to this class: [distribution](#output-port
     </tr>
     <tr>
       <td>Range:</td>
-      <td><a href="#class-output-port">pmt:OutputPort</a></td>
+      <td><a href="#class-data-product">pmt:DataProduct</a></td>
     </tr>
   </tbody>
 </table>
@@ -1278,7 +1278,7 @@ The following properties are specific to this class: [distribution](#output-port
   <thead>
     <tr>
       <th width="240px"><strong>Property</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property=consume-instructions">pmt:consumeInstructions</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-consume-instructions">pmt:consumeInstructions</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -1392,7 +1392,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the [SCC](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en) for transferring data outside of the EU, the [ISO9001](https://www.ciso-portal.com/iso-9001-cybersecurity/) for security purposes or [Paypal's standard](https://github.com/paypal/data-contract-template/blob/main/docs/README.md#Data-quality) for a data contract in a data mesh.</td>
+      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the <a href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en">SCC</a> for transferring data outside of the EU, <a href="https://www.ciso-portal.com/iso-9001-cybersecurity/">ISO9001</a> for security purposes or <a href="https://github.com/paypal/data-contract-template/blob/main/docs/README.md#Data-quality">Paypal's standard</a> for a data contract in a data mesh.</td>
     </tr>
   </tbody>
   <tr>
@@ -1412,11 +1412,11 @@ The following properties are specific to this class: [providerPromise](#property
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A promise made by the [pmt:dataProvider](#property-data-provider) to the data consumer that is captured in the data contract.</td>
+      <td>A promise made by the <a href="#property-data-provider">pmt:dataProvider</a> to the data consumer that is captured in the data contract.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Provider promises can also be captured in a [pmt:SLA](#property-service-level-agreement), [pmt:SLO](#property-service-level-objective) or in a [pmt:policy](#data-contract-property-promise)</td>
+      <td>Provider promises can also be captured in a <a href="#property-service-level-agreement">pmt:SLA</a>, <a href="#property-service-level-objective">pmt:SLO</a> or in a <a href="#data-contract-property-promise">pmt:policy</a></td>
     </tr>
     <tr>
       <td>Motivation:</td>
@@ -1436,11 +1436,11 @@ The following properties are specific to this class: [providerPromise](#property
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A promise required from the data consumer to the [pmt:dataProvider](#property-data-provider) that is captured in the data contract.</td>
+      <td>A promise required from the data consumer to the <a href="#property-data-provider">pmt:dataProvider</a> that is captured in the data contract.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Consumer promises can also be captured in a [pmt:SLA](#property-service-level-agreement) or in a [pmt:policy](#data-contract-property-promise)</td>
+      <td>Consumer promises can also be captured in a <a href="#property-service-level-agreement">pmt:SLA</a> or in a <a href="#data-contract-property-policy">pmt:policy</a>.</td>
     </tr>
     <tr>
       <td>Motivation:</td>
@@ -1454,7 +1454,7 @@ The following properties are specific to this class: [providerPromise](#property
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#data-contract-property-policy">pmt:promise</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#data-contract-property-policy">pmt:policy</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -1573,7 +1573,7 @@ The following properties are specific to this class: [providerPromise](#property
   <thead>
     <tr>
       <th width="240px"><strong>Property</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="http://purl.org/dc/elements/1.1/description">pmt:correspondingDataProduct</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#input-port-property-corresponding-data-product">pmt:correspondingDataProduct</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -1583,7 +1583,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Usage Note</td>
-      <td>This is an inverse property of [pmt:inputPort](#property-input-port)</td>
+      <td>This is an inverse property of <a href="#property-input-port">pmt:inputPort</a></td>
     </tr>
   </tbody>
 </table>
@@ -1599,15 +1599,11 @@ The following properties are specific to this class: [providerPromise](#property
   <tbody>
     <tr>
       <td>Definition</td>
-      <td>A resource or output port of a data product which is consumed to create or maintain this resource.</td>
+      <td>A resource or output port of a data product which is consumed to create or maintain this input port.</td>
     </tr>
     <tr>
       <td>Range</td>
-      <td>{[pmt:Resource](#class-resource), [pmt:OutputPort](#class-output-port)}</td>
-    </tr>
-    <tr>
-      <td>Usage Note:</td>
-      <td>This property can refer to other resources on the data catalog or to source systems that are not onboarded on the catalog.</td>
+      <td>{<a href="#class-resource">pmt:Resource</a>, <a href="#class-output-port">pmt:OutputPort</a>}</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -1700,7 +1696,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Usage Note</td>
-      <td>This is an inverse property of [pmt:controlPort](#property-control-port)</td>
+      <td>This is an inverse property of <a href="#property-control-port">pmt:controlPort</a></td>
     </tr>
   </tbody>
 </table>
