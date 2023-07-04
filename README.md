@@ -1096,9 +1096,11 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   </tbody>
 </table>
   
-### Class Distribution
+### Class: Distribution
 The following property is specific to this class: [technical schema](#property-technical-schema).
 The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port).
+
+The following properties are inherited from the super-class [dcat:Distribution](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
 
 <!-- Distributions SHOULD have a [pmt:technicalSchema](#property-technical-schema) -->
 
