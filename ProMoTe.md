@@ -509,7 +509,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
       </tr>
       <tr>
         <td>Motivation:</td>
-        <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+        <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
       </tr>
     </tbody>
   </table>
@@ -538,7 +538,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -566,7 +566,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
       </tr>
     <!-- <tr>
       <td>Usage Note:</td>
@@ -908,7 +908,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1005,7 +1005,7 @@ The following properties are specific to this class: [distribution](#dataset-pro
 
 The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#resource-property-consumes), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
-The following properties are inherited from the super-class [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
+The following properties are inherited from the super-class [dcat:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
 
 <!-- Datasets SHOULD have a [pmt:logicalSchema](#dataset-property-logical-schema). Datasets SHOULD be extended with additional properties from the superclass [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset) as needed by context. -->
 
@@ -1100,7 +1100,7 @@ The following properties are inherited from the super-class [dcat:Dataset](http:
   </tbody>
 </table>
   
-### Class Distribution
+### Class: Distribution
 The following property is specific to this class: [technical schema](#property-technical-schema).
 The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port).
 
@@ -1350,7 +1350,7 @@ The following properties are specific to this class: [distribution](#output-port
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1545,7 +1545,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1613,7 +1613,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1640,7 +1640,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>

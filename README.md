@@ -505,7 +505,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
       </tr>
       <tr>
         <td>Motivation:</td>
-        <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+        <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
       </tr>
     </tbody>
   </table>
@@ -534,7 +534,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -562,7 +562,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
       </tr>
     <!-- <tr>
       <td>Usage Note:</td>
@@ -904,7 +904,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1346,7 +1346,7 @@ The following properties are specific to this class: [distribution](#output-port
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1541,7 +1541,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1609,7 +1609,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
@@ -1636,7 +1636,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+      <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
     </tr>
   </tbody>
 </table>
