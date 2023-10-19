@@ -101,8 +101,6 @@ The figure below shows an overview in UML of the classes described in ProMoTe an
 
 Each resource is managed within a [pmt:Domain](#class-domain) that maintains semantic domain knowledge in [pmt:InstitutionalKnowledge](#class-institutional-knowledge). Data products ingest data through one or more [pmt:InputPort](#class-input-port)s and are governed through policies that are managed through [pmt:ControlPort](#class-control-port)s. Finally, data products make available one or more [dct:Distribution](#class-distribution)s of [pmt:DataAsset](#class-dataasset)s through an associated [pmt:OutputPort](#class-output-port). For each output port, an associated [pmt:DataContract](#class-data-contract) establishes the conditions that apply when consuming the underlying data.
 
-asdf
-
 ## How to read and use this document.
 With ProMoTe, you can help define metadata models to describe data products in the data catalogue of your data mesh, or it can help you determine what a data product should look like within your organisation and whether different maturity levels that contain various aspects exist. An academic paper illustrating these use cases of ProMoTe is underway. The core concepts of ProMoTe are also available as an ontology in a .owl-file, which can be found [here](https://github.com/Stefan-Driessen/ProMoTe/blob/main/ProMoTe.owl).
 
