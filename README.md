@@ -109,7 +109,7 @@ The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpr
 ## External Documents
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
-![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v5.png)
+![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/Promote_v5.png)
 
 ## Specification
 ### Class: Resource
