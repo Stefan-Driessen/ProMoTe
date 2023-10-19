@@ -38,27 +38,32 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
       - [Property: Is Consumed By](#resource-property-consumed-by)
       - [Property: Estimated Value](#property-estimated-value)
       - [Property: Qualified Attribution](#property-qualified-attribution)
+      - [Property: Catalog Record](#resource-property-catalog-record)
     - [Class: Domain](#class-domain)
       - [Property: Resource](#property-resource)
       - [Property: Domain Knowledge](#property-domain-knowledge)
+      - [Property: Domain Owner](#domain-property-domain-owner)
+      - [Property: Domain Participant](#domain-property-domain-participant)
     - [Class: Institutional Knowledge](#class-institutional-knowledge)
       - [Property: Defining Domain](#property-defining-domain)
       - [Property: Knowledge URI](#property-knowledge-uri)
     - [Class: Data Product](#class-data-product)
       - [Property: Data Provider](#property-data-provider)
-      - [Property: Dataset](#property-dataset)
+      - [Property: DataAsset](#property-data-asset)
       - [Property: Output Port](#data-product-property-output-port)
       - [Property: Input Port](#property-input-port)
       - [Property: Control Port](#property-control-port)
+      - [Property: Transformation Logic](#data-product-property-transformation-logic)
+      - [Property: Enfocement Logic](#data-product-property-enforcement-logic)
     - [Class: Use Case](#class-use-case)
       - [Property: Planned End Date](#property-planned-end-date)
-    - [Class: Dataset](#class-dataset)
-      - [Property: Distribution](#dataset-property-distribution)
-      - [Property: Logical Schema](#dataset-property-logical-schema)
-      - [Property: Data Product](#dataset-property-data-product)
+    - [Class: Data Asset](#class-data-asset)
+      - [Property: Distribution](#data-asset-property-distribution)
+      - [Property: Logical Schema](#data-asset-property-logical-schema)
+      - [Property: Data Product](#data-asset-property-data-product)
     - [Class Distribution](#class-distribution)
       - [Property: Output Port](#distribution-property-output-port)
-      - [Property: Physical Schema](#property-physical-schema)
+      - [Property: Physical Schema](#distribution-property-physical-schema)
       - [Property: Description](#distribution-property-description)
     - [Class: Output Port](#class-output-port)
       - [Property: Exposes Distribution](#property-exposes-distribution)
@@ -66,7 +71,8 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
       - [Property: endpointURL](#property-endpoint-url)
       - [Property: Consume Instructions](#property-consume-instructions)
       - [Property: Consumed By](#output-port-property-consumed-by)
-      - [Property: Data Contract](#property-data-contract)
+      - [Property: Data Contract](#output-port-property-data-contract)
+      - [Property: Access Management](#output-port-access-management)
     - [Class: Data Contract](#class-data-contract)
       - [Property: Provider Promise](#property-provider-promise)
       - [Property: Consumer Promise](#property-consumer-promise)
@@ -77,7 +83,9 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
       - [Property: Description](#input-port-property-description)
       - [Property: Data Product](#input-port-property-corresponding-data-product)
       - [Property: Consumes](#input-port-property-consumes)
-      - [Property: Source System](#input-port-property-source-system)
+      - [Property: Source System](#-property-source-system-)
+      - [Property: Data Contract](#input-port-property-data-contract)
+      - [Property: Physical Schema](#input-port-property-physical-schema)
     - [Class: Control Port](#class-control-port)
       - [Property: Description](#control-port-property-description)
       - [Property: Data Product](#control-port-property-corresponding-data-product)
@@ -89,9 +97,9 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
 ProMoTe is a data Product Modelling Template for describing data products in a data mesh environment in a technology-independent manner. It was originally designed by researchers collaborating with large European companies that were looking to transition from a centralised, monolithic data landscape towards a more decentralised data-mesh (like) data landscape. ProMoTe is grounded in academic literature and industrial practice. It extends well-established ontologies (primarily [DCAT](https://www.w3.org/TR/vocab-dcat-2/)) in a way that is intended to help create data products that achieve the DAUTNIVS+ non-functional requirements (Discoverability, Addressability, Understandability, Truthful & Trustworthy, Natively Accessible, Interoperable, Valuable and Secure + Feedback-Driven). The first eight of these are described extensively in the original data mesh [book](https://www.oreilly.com/library/view/data-mesh/9781492092384/), published by Dehghani in 2020, whereas being Feedback-Driven originates from a desire to develop data products in an agile manner, akin to how DevOps has become standard practice for software development.
 
 ## ProMoTe from a bird's-eye view
-The figure below shows an overview in UML of the classes described in ProMoTe and the relations that can be used to describe them; the classes and relations are also described in detail below. Additionally, whenever relevant, we describe how the different classes and properties contribute to achieving DAUTNIVS+ in the "Motivation" field. At a high level ProMoTe extends the [dcat:Resource](https://www.w3.org/TR/vocab-dcat-2/#Class:Resource) class with a subclass: [pmt:Resource](#class-resource). pmt:Resources come in three varieties: the [pmt:Dataset](#class-dataset), which is a subclass of [dct:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset); the [pmt:Dataproduct](#class-data-product), which is the architectural quantum of a data mesh and the main focus of ProMoTe; and the [pmt:UseCase](#class-use-case), that describes how the data is consumed. Data Products make available one or more data sets. Each data set has one or more physical representations (distributions), which are exposed throught output ports.
+The figure below shows an overview in UML of the classes described in ProMoTe and the relations that can be used to describe them; the classes and relations are also described in detail below. Additionally, whenever relevant, we describe how the different classes and properties contribute to achieving DAUTNIVS+ in the "Motivation" field. At a high level ProMoTe extends the [dcat:Resource](https://www.w3.org/TR/vocab-dcat-2/#Class:Resource) class with a subclass: [pmt:Resource](#class-resource). pmt:Resources come in three varieties: the [pmt:DataAsset](#class-dataasset), which is a subclass of [dct:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset); the [pmt:Dataproduct](#class-data-product), which is the architectural quantum of a data mesh and the main focus of ProMoTe; and the [pmt:UseCase](#class-use-case), that describes how the data is consumed. Data Products make available one or more data sets. Each data set has one or more physical representations (distributions), which are exposed throught output ports.
 
-Each resource is managed within a [pmt:Domain](#class-domain) that maintains semantic domain knowledge in [pmt:InstitutionalKnowledge](#class-institutional-knowledge). Data products ingest data through one or more [pmt:InputPort](#class-input-port)s and are governed through policies that are managed through [pmt:ControlPort](#class-control-port)s. Finally, data products make available one or more [dct:Distribution](#class-distribution)s of [pmt:Dataset](#class-dataset)s through an associated [pmt:OutputPort](#class-output-port). For each output port, an associated [pmt:DataContract](#class-data-contract) establishes the conditions that apply when consuming the underlying data.
+Each resource is managed within a [pmt:Domain](#class-domain) that maintains semantic domain knowledge in [pmt:InstitutionalKnowledge](#class-institutional-knowledge). Data products ingest data through one or more [pmt:InputPort](#class-input-port)s and are governed through policies that are managed through [pmt:ControlPort](#class-control-port)s. Finally, data products make available one or more [dct:Distribution](#class-distribution)s of [pmt:DataAsset](#class-dataasset)s through an associated [pmt:OutputPort](#class-output-port). For each output port, an associated [pmt:DataContract](#class-data-contract) establishes the conditions that apply when consuming the underlying data.
 
 ## How to read and use this document.
 With ProMoTe, you can help define metadata models to describe data products in the data catalogue of your data mesh, or it can help you determine what a data product should look like within your organisation and whether different maturity levels that contain various aspects exist. An academic paper illustrating these use cases of ProMoTe is underway. The core concepts of ProMoTe are also available as an ontology in a .owl-file, which can be found [here](https://github.com/Stefan-Driessen/ProMoTe/blob/main/ProMoTe.owl).
@@ -101,11 +109,11 @@ The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpr
 ## External Documents
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
-![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v4.png)
+![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v5.png)
 
 ## Specification
 ### Class: Resource
-The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
+The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution), [catalog record](#resource-property-catalog-record).
 
 <!-- Resources MUST have a [pmt:domain](#resource-property-domain") and a [dct:identifier](#property-identifier). Resources SHOULD have a [pmt:resourceProvider](#property-resource-provider).
 
@@ -121,7 +129,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A data product, dataset or use case that can be described on a data catalog.</td>
+      <td>A data product, data asset or use case that can be described on a data catalog.</td>
     </tr>
     <tr>
       <td>Subclass of:</td>
@@ -329,7 +337,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Range:</td>
-      <td>{<a href="#class-data-product">pmt:DataProduct</a>, <a href="#class-use-case">pmt:UseCase</a>, <a href="#class-data-set">pmt:Dataset</a>}</td>
+      <td>{<a href="#class-data-product">pmt:DataProduct</a>, <a href="#class-use-case">pmt:UseCase</a>, <a href="#class-data-asset">pmt:DataAsset</a>}</td>
     </tr>
     <tr>
       <td>Motivation:</td>
@@ -521,12 +529,12 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
   <tbody>
     <tr>
       <td>Definition</td>
-      <td>An IT system that generates or stores data in this resource, such as a speficic data warehouse, data lake, or database.</td>
+      <td>An IT system that generates or stores data in this resource, such as a specific data warehouse, data lake, or database.</td>
     </tr>
     <tr>
     <tr>
-      <td>Domain</td>
-      <td>{<a href="#class-dataset">pmt:Dataset</a>, <a href="#class-input-port">pmt:InputPort</a>}</td>
+      <td>Range</td>
+      <td>{<a href="#class-data-asset">pmt:DataAsset</a>, <a href="#class-distribution">pmt:Distribution</a>}</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -619,8 +627,32 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
   </tbody>
 </table>
 
+<h4 id="resource-property-catalog-record">Property: Catalog Record</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal">pmt:catalogRecord</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>The record describing this resource in a data catalog</td>
+    </tr>
+    <tr>
+      <td>Range:</td>
+      <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Catalog_Record">dcat:CatalogRecord</a></td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Catalog records contribute to Discoverability, Addressability, Understandability, Interoperability and Value.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### Class: Domain
-The following properties are specific to this class: [resource](#property-resource), [domain knowledge](property-domain-knowledge).
+The following properties are specific to this class: [resource](#property-resource), [domain knowledge](property-domain-knowledge), [domain owner](#domain-property-domain-owner), [domain participant](#domain-property-domain-participant).
 
 <!-- Domains SHOULD have at least one [pmt:resource](#property-resource). Domains MAY be extended with owners or other responsible actors through a [pmt:qualifiedAttribution](#property-qualified-attribution) relation. -->
 
@@ -695,6 +727,50 @@ The following properties are specific to this class: [resource](#property-resour
     <tr>
       <td>Motivation:</td>
       <td>Institutional knowledge contributes to Discoverability, Understandability and Interoperability.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="domain-property-domain-owner"> Property: Domain Owner </h4>
+  <table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#domain-property-domain-owner">pmt:domainOwner</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>The person who carries the high-level responsibility for domain, the business processes in it and the data they generate.</td>
+    </tr>
+    <tr>
+      <td>Range:</td>
+      <td><a href="http://xmlns.com/foaf/0.1/#term_Agent">foaf:Agent</a></td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Domain owners help assign responsibility for the different data products, which contributes to Addressability.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="domain-property-domain-participant"> Property: Domain Participant </h4>
+  <table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#domain-property-domain-participant">pmt:domainParticipant</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>A person who is active within the domain.</td>
+    </tr>
+    <tr>
+      <td>Range:</td>
+      <td><a href="http://xmlns.com/foaf/0.1/#term_Agent">foaf:Agent</a></td>
     </tr>
   </tbody>
 </table>
@@ -776,7 +852,7 @@ The following properties are specific to this class: [defining domain](#property
   </table>
 
 ### Class: Data Product
-The following properties are specific to this class: [data provider](#property-data-provider), [dataset](#property-dataset), [output port](#data-product-property-output-port), [input port](#property-input-port), [control port](#property-control-port).
+The following properties are specific to this class: [data provider](#property-data-provider), [data asset](#property-data-asset), [output port](#data-product-property-output-port), [input port](#property-input-port), [control port](#property-control-port), [transformation logic](#data-product-property-transformation-logic), [enforcement logic](#data-product-property-enforcement-logic).
 
 The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#resource-property-consumes),  [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
@@ -804,7 +880,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>This class describes all everything that holds true across all underlying datasets, distributions, and output ports in the data product.</td>
+      <td>This class describes all everything that holds true across all underlying data assets, distributions, and output ports in the data product.</td>
     </tr>
   </tbody>
 </table>
@@ -833,22 +909,22 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
   </tbody>
 </table>
 
-#### Property: Dataset
+#### Property: Data Asset
 <table>
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property-dataset">pmt:dataSet</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-data-asset">pmt:dataAsset</a></span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A dataset that is offered through this data product.</td>
+      <td>A data asset that is offered through this data product.</td>
     </tr>
     <tr>
       <td>Range:</td>
-      <td><a href="#class-dataset">pmt:Dataset</a></td>
+      <td><a href="#class-data-asset">pmt:Data Asset</a></td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -880,7 +956,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Output ports make different distributions of a data product's datasets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+      <td>Output ports make different distributions of a data product's data assets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
     </tr>
   </tbody>
 </table>
@@ -929,12 +1005,52 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
   </tbody>
 </table>
 
+<h4 id="data-product-property-transformation-logic">Property: Transformation Logic</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#data-product-property-transformation-logic">pmt:transformationLogic</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>The logic or code used to transform data coming in from the input ports of the data product to the distributions that are exposerd through the output ports.</td>
+    </tr>
+    <!-- <tr>
+      <td>Motivation:</td>
+      <td></td>
+    </tr> -->
+  </tbody>
+</table>
+
+<h4 id="data-product-property-enforcement-logic">Property: Enfocement Logic</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#data-product-property-enforcement-logic">pmt:enforcementLogic</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>The logic or code used to (semi-)automatically enforce the policies that govern the data product.</td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Automating enforcement logic contributes to the Truthfulness & Trustworthiness of the data product.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### Class: Use Case
 The following property is specific to this class: [planned end date](#property-planned-end-date).
 
 The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#resource-property-consumes), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
-<!-- Use cases MUST have at least one [pmt:consumes](#resource-property-consumes) property to indicate which dataset or output port they consume. Use cases SHOULD have a [pmt:estimatedValue](#property-estimated-value) and a [pmt:plannedEndDate](#property-planned-end-date). -->
+<!-- Use cases MUST have at least one [pmt:consumes](#resource-property-consumes) property to indicate which data asset or output port they consume. Use cases SHOULD have a [pmt:estimatedValue](#property-estimated-value) and a [pmt:plannedEndDate](#property-planned-end-date). -->
 
 <table>
   <thead>
@@ -996,8 +1112,8 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
   </tbody>
 </table>
 
-### Class: Dataset
-The following properties are specific to this class: [distribution](#dataset-property-distribution), [logical](#dataset-property-logical-schema), [data product](#dataset-property-data-product).
+### Class: Data Asset
+The following properties are specific to this class: [distribution](#data-asset-property-distribution), [logical](#data-asset-property-logical-schema), [data product](#data-asset-property-data-product).
 
 The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#resource-property-consumes), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
@@ -1009,7 +1125,7 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   <thead>
     <tr>
       <th width="240px"><strong>Class:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#class-dataset">pmt:Dataset</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#class-data-asset">pmt:DataAsset</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -1027,12 +1143,12 @@ The following properties are inherited from the super-class [dcat:Dataset](https
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>A dataset can exist as a precursor to  a data product and evolve to become a fully mature data produt over time. Not every data set needs to become a fully function data product however. Additionally, it is possible for a single data product to provide (access to) multiple datasets.</td>
+      <td>A data asset can exist as a precursor to  a data product and evolve to become a fully mature data produt over time. Not every data set needs to become a fully function data product however. Additionally, it is possible for a single data product to provide (access to) multiple data assets.</td>
     </tr>
   </tbody>
 </table>
 
-<h4 id="dataset-property-distribution"> Property: Distribution </h4>
+<h4 id="data-asset-property-distribution"> Property: Distribution </h4>
 <table>
   <thead>
     <tr>
@@ -1043,27 +1159,27 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A physical manifestion of the dataset.</td>
+      <td>A physical manifestion of the data asset.</td>
     </tr>
   </tbody>
 </table>
   
-<h4 id="dataset-property-logical-schema"> Property: Logical schema</h4>
+<h4 id="data-asset-property-logical-schema"> Property: Logical schema</h4>
 <table>
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#dataset-property-logical-schema">pmt:logicalSchema</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#data-asset-property-logical-schema">pmt:logicalSchema</a></span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A description of the data structure and internal relations at the dataset-level.</td>
+      <td>A description of the data structure and internal relations at the data asset-level.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Logical schemas describe the structure of data that holds true across different distributions of the dataset. Structural descriptions of different distributions are described in <a href="#property-technical-schema">pmt:technicalSchema</a></td>
+      <td>Logical schemas describe the structure of data that holds true across different distributions of the data asset. Structural descriptions of different distributions are described in <a href="#property-technical-schema">pmt:technicalSchema</a></td>
     </tr>
     <tr>
       <td>Motivation:</td>
@@ -1072,18 +1188,18 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   </tbody>
 </table>
   
-<h4 id="dataset-property-data-product"> Property: Data Product </h4>  
+<h4 id="data-asset-property-data-product"> Property: Data Product </h4>  
 <table>
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#dataset-property-data-product">pmt:offeredInDataProduct</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#data-asset-property-data-product">pmt:offeredInDataProduct</a></span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A data product that makes this dataset available for consumption.</td>
+      <td>A data product that makes this data asset available for consumption.</td>
     </tr>
     <tr>
       <td>Range:</td>
@@ -1091,7 +1207,7 @@ The following properties are inherited from the super-class [dcat:Dataset](https
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>This is an inverse property of <a href="#property-data-set">pmt:dataset</a></td>
+      <td>This is an inverse property of <a href="#property-data-asset">pmt:dataAsset</a></td>
     </tr>
   </tbody>
 </table>
@@ -1114,7 +1230,7 @@ The following properties are inherited from the super-class [dcat:Distribution](
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above).</td>
+      <td>A specific representation of a data asset. A data asset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above).</td>
     </tr>
     <tr>
       <td>Subclass-of:</td>
@@ -1150,17 +1266,17 @@ The following properties are inherited from the super-class [dcat:Distribution](
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Output ports make different distributions of a data product's datasets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+      <td>Output ports make different distributions of a data product's data assets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
     </tr>
   </tbody>
 </table>
   
-#### Property: Physical Schema
+<h4 id="distribution-property-physical-schema">Property: Physical Schema</h4>
 <table>
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property-physical-schema">pmt:physicalSchema</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#distribution-property-physical-schema">pmt:physicalSchema</a></span></th>
     </tr>
   </thead>
   <tbody>
@@ -1170,7 +1286,7 @@ The following properties are inherited from the super-class [dcat:Distribution](
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Physical schemas describe the structure of data of a specific distribution of a <a href="#class-dataset">pmt:Dataset</a>. Structural descriptions that hold true across all distributions of a dataset are described in <a href="#dataset-property-logical-schema">pmt:logicalSchema</a></td>
+      <td>Physical schemas describe the structure of data of a specific <a href="#class-distribution">distribution</a> of a <a href="#class-data-asset">pmt:DataAsset</a>. Structural descriptions that hold true across all distributions of a data asset are described in <a href="#data-asset-property-logical-schema">pmt:logicalSchema</a></td>
   </tr>
   <tr>
       <td>Motivation:</td>
@@ -1200,7 +1316,7 @@ The following properties are inherited from the super-class [dcat:Distribution](
 </table>
 
 ### Class: Output Port
-The following properties are specific to this class: [distribution](#output-port-property-distribution), [data product](#output-port-property-data-product), [data contract](#property-data-contract).
+The following properties are specific to this class: [distribution](#output-port-property-distribution), [data product](#output-port-property-data-product).
 
 <!-- Output Ports MUST have a [pmt:exposesDistribution](#property-exposes-distribution) and a [pmt:exposesDataProduct](#output-port-property-data-product). Output Ports SHOULD have [pmt:consumeInstructions](#property-consume-instructions), [pmt:dataContract](#property-data-contract), and at least one [pmt:consumedBy](#output-port-property-consumed-by). -->
 
@@ -1351,22 +1467,46 @@ The following properties are specific to this class: [distribution](#output-port
   </tbody>
 </table>
   
-#### Property: Data Contract
+<h4 id="output-port-property-data-contract"> Property: Data Contract</h4>
 <table>
   <thead>
     <tr>
       <th width="240px"><strong>Property</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property-data-contract">pmt:dataContract</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#output-port-property-data-contract">pmt:dataContract</a></span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Definition</td>
-      <td>The data contract associated with this output port.</td>
+      <td>A data contract associated with an output port. If the output port is the input port of another data contract, the data contract regulates how the data flows into that data product.</td>
     </tr>
     <tr>
       <td>Motivation:</td>
       <td>Data Contracts contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="output-port-access-management">Property: Access Management</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#output-port-access-management">pmt:accessManagement</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>The enforcement of access rights on an output port.</td>
+    </tr>
+    <tr>
+      <td>Usage Note</td>
+      <td>Access Management is usually provided by the organisation as part of a larger IAM framework</td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Access Mangement contributes to Security, Native Accessibility and Feedback-Driven.</td>
     </tr>
   </tbody>
 </table>
@@ -1629,7 +1769,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Domain</td>
-      <td>{<a href="#class-dataset">pmt:Dataset</a>, <a href="#class-input-port">pmt:InputPort</a>}</td>
+      <td>{<a href="#class-data-asset">pmt:DataAsset</a>, <a href="#class-input-port">pmt:InputPort</a>}</td>
     </tr>
       <td>Usage Note:</td>
       <td>This property can be used to describe either where a specific data set or distribution lives, or give information on the input port of a data product.</td>
@@ -1637,6 +1777,50 @@ The following properties are specific to this class: [providerPromise](#property
     <tr>
       <td>Motivation:</td>
       <td>In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="input-port-property-data-contract"> Property: Data Contract</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#input-port-property-data-contract">pmt:dataContract</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>A data contract associated with an output port. If the output port is the input port of another data contract, the data contract regulates how the data flows into that data product.</td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Data Contracts contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="input-port-property-physical-schema">Property: Physical Schema</h4>
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#input-port-property-physical-schema">pmt:physicalSchema</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>A description of the data structure and internal relations at the distribution-level.</td>
+    </tr>
+    <tr>
+      <td>Usage Note:</td>
+      <td>Physical schemas describe the structure of data of a specific <a href="#class-distribution">distribution</a> of a <a href="#class-data-asset">pmt:DataAsset</a>. Structural descriptions that hold true across all distributions of a data asset are described in <a href="#data-asset-property-logical-schema">pmt:logicalSchema</a></td>
+  </tr>
+  <tr>
+      <td>Motivation:</td>
+      <td>Physical schemas help with Understandability and Interoperability.</td>
     </tr>
   </tbody>
 </table>
