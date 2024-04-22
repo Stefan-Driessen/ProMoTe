@@ -109,9 +109,9 @@ The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpr
 ## External Documents
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
+## Specification
 ![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/Promote_v5.png)
 
-## Specification
 ### Class: Resource
 The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution), [catalog record](#resource-property-catalog-record).
 
@@ -1230,7 +1230,7 @@ The following properties are inherited from the super-class [dcat:Distribution](
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A specific representation of a data asset. A data asset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above).</td>
+      <td>A technical collection of data representating one or more data assets. Data assets might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). A distribution might also combine information from multiple data assets.</td>
     </tr>
     <tr>
       <td>Subclass-of:</td>
