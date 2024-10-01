@@ -1163,7 +1163,7 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A physical manifestion of the data asset.</td>
+      <td>A physical manifestion of (a subset of) the data asset.</td>
     </tr>
   </tbody>
 </table>
