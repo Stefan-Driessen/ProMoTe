@@ -379,17 +379,17 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
   <thead>
     <tr>
       <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="https://www.w3.org/ns/dcat#keyword">dct:language</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#language">dct:language</a></span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Definition</td>
-      <td>A keyword or tag describing the resource.</td>
+      <td>A language of the resource.</td>
     </tr>
     <tr>
-      <td>Range:</td>
-      <td><a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a></td>
+      <td>Range Includes:</td>
+      <td><a href="http://purl.org/dc/terms/LinguisticSystem">http://purl.org/dc/terms/LinguisticSystem</a></td>
     </tr>
     <tr>
       <td>Motivation:</td>
@@ -537,7 +537,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
     <tr>
-      <td>Range</td>
+      <td>Domains</td>
       <td>{<a href="#class-data-asset">pmt:DataAsset</a>, <a href="#class-distribution">pmt:Distribution</a>}</td>
     </tr>
     <tr>
@@ -670,7 +670,7 @@ The following properties are specific to this class: [resource](#property-resour
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>The organisational sphere of knowledge and activity from which the data originates.</td>
+      <td>The organisational sphere of knowledge and activity from which resources and actors originate.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -1770,10 +1770,6 @@ The following properties are specific to this class: [providerPromise](#property
     <tr>
       <td>Definition</td>
       <td>An IT system that generates or stores data that is used for this data product, such as a speficic data warehouse, data lake, or database.</td>
-    </tr>
-    <tr>
-      <td>Domain</td>
-      <td>{<a href="#class-data-asset">pmt:DataAsset</a>, <a href="#class-input-port">pmt:InputPort</a>}</td>
     </tr>
       <td>Usage Note:</td>
       <td>This property can be used to describe either where a specific data set or distribution lives, or give information on the input port of a data product.</td>

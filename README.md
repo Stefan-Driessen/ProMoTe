@@ -533,7 +533,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
     <tr>
-      <td>Range</td>
+      <td>Domains</td>
       <td>{<a href="#class-data-asset">pmt:DataAsset</a>, <a href="#class-distribution">pmt:Distribution</a>}</td>
     </tr>
     <tr>
