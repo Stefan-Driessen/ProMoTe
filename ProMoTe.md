@@ -72,7 +72,7 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
     - [Class: Output Port](#class-output-port)
       - [Property: Exposes Distribution](#property-exposes-distribution)
       - [Property: Data Product](#property-exposes-data-product)
-      - [Property: endpointURL](#property-endpoint-url)
+      - [Property: endpointURI](#property-endpoint-uri)
       - [Property: Consume Instructions](#property-consume-instructions)
       - [Property: Consumed By](#output-port-property-consumed-by)
       - [Property: Data Contract](#output-port-property-data-contract)
@@ -1396,7 +1396,7 @@ The following properties are specific to this class: [distribution](#output-port
   <thead>
     <tr>
       <th width="240px"><strong>Property</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property-consume-instructions">pmt:consumeInstructions</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-endpoint-uri">pmt:endpointURI</a></span></th>
     </tr>
   </thead>
   <tbody>
