@@ -110,7 +110,7 @@ The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpr
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
 ## Specification
-![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/Promote_v5.png)
+![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/Promote_v5.2.png)
 
 ### Class: Resource
 The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution), [catalog record](#resource-property-catalog-record).
@@ -137,7 +137,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Comment</td>
-      <td>The class of all data sets, data products and use cases that exist and are registered in the data catalog of the data mesh.</td>
+      <td>The class of all distributions, data assets, data products and use cases that exist and are registered in the data catalog of the data mesh.</td>
     </tr>
     <tr>
       <td>Usage Note:</td>
@@ -854,7 +854,7 @@ The following properties are specific to this class: [defining domain](#property
 ### Class: Data Product
 The following properties are specific to this class: [data provider](#property-data-provider), [data asset](#property-data-asset), [output port](#data-product-property-output-port), [input port](#property-input-port), [control port](#property-control-port), [transformation logic](#data-product-property-transformation-logic), [enforcement logic](#data-product-property-enforcement-logic).
 
-The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#resource-property-consumes),  [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
+The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [pmt:resourceProvider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [consumes](#resource-property-consumes),  [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
 <!-- Data Products MUST have a [pmt:dataProvider](#property-data-provider) and at least one [pmt:dataset](#property-dataset), [pmt:outputPort](#data-product-property-output-port) and [pmt:inputPort](#property-input-port). Data Products SHOULD have at least one [pmt:consumedBy](#resource-property-consumed-by). A data products [pmt:type](#property-resource-type) MUST NOT be anything other than "Data Product". -->
 
@@ -1217,6 +1217,8 @@ The following property is specific to this class: [technical schema](#property-t
 The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port).
 
 The following properties are inherited from the super-class [dcat:Distribution](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
+
+The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [source system](#resource-property-source-system), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
 <!-- Distributions SHOULD have a [pmt:technicalSchema](#property-technical-schema) -->
 
