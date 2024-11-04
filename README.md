@@ -110,7 +110,7 @@ The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpr
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
 ## Specification
-![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/Promote_v5.2.png)
+![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/Promote_v5.3.png)
 
 ### Class: Resource
 The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution), [catalog record](#resource-property-catalog-record).
@@ -1214,11 +1214,9 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   
 ### Class: Distribution
 The following property is specific to this class: [technical schema](#property-technical-schema).
-The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port).
+The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port). The following properties are shared with the [pmt:Resource](#class-resource) class: [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [source system](#resource-property-source-system), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
 The following properties are inherited from the super-class [dcat:Distribution](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
-
-The following properties are inherited from the super-class [pmt:Resource](#class-resource): [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [source system](#resource-property-source-system), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
 <!-- Distributions SHOULD have a [pmt:technicalSchema](#property-technical-schema) -->
 
