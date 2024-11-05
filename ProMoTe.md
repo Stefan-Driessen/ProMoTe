@@ -749,6 +749,10 @@ The following properties are specific to this class: [resource](#property-resour
       <td>The person who carries the high-level responsibility for domain, the business processes in it and the data they generate.</td>
     </tr>
     <tr>
+      <td>Subproperty Of</td>
+      <td><a href="https://www.w3.org/TR/prov-o/#qualifiedAttribution">prov:qualifiedAttribution</a></td>
+    </tr>
+    <tr>
       <td>Range:</td>
       <td><a href="http://xmlns.com/foaf/0.1/#term_Agent">foaf:Agent</a></td>
     </tr>
