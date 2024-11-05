@@ -694,7 +694,7 @@ The following properties are specific to this class: [resource](#property-resour
     </tr>
     <tr>
       <td>Range:</td>
-      <td>[pmt:Resource](#class-resource)</td>
+      <td><a href=#class-resource>pmt:Resource</a></td>
     </tr>
     <tr>
       <td>Usage Note:</td>
