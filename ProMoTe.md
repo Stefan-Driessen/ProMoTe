@@ -980,7 +980,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Output ports make different distributions of a data product's data assets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+      <td>Output ports make different distributions of a data product's datasets Natively Accessible in a Reusable manner. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
     </tr>
   </tbody>
 </table>
