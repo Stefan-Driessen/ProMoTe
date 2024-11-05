@@ -833,6 +833,10 @@ The following properties are specific to this class: [defining domain](#property
       <td>The domain that defines and maintains the institutional knowledge.</td>
     </tr>
     <tr>
+      <td>Range:</td>
+      <td><a href="#class-domain">pmt:Domain</a></td>
+    </tr>
+    <tr>
       <td>Usage Note:</td>
       <td>This is an inverse property of <a href="#domain-property-institutional-resource">pmt:institutionalKnowledge</a></td>
     </tr>
