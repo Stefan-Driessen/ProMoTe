@@ -744,7 +744,7 @@ The following properties are specific to this class: [resource](#property-resour
       <td>Definition</td>
       <td>The person who carries the high-level responsibility for domain, the business processes in it and the data they generate.</td>
     </tr>
-        <tr>
+    <tr>
       <td>Subproperty Of</td>
       <td><a href="https://www.w3.org/TR/prov-o/#qualifiedAttribution">prov:qualifiedAttribution</a></td>
     </tr>
@@ -771,6 +771,10 @@ The following properties are specific to this class: [resource](#property-resour
     <tr>
       <td>Definition</td>
       <td>A person who is active within the domain.</td>
+    </tr>
+    <tr>
+      <td>Subproperty Of</td>
+      <td><a href="https://www.w3.org/TR/prov-o/#qualifiedAttribution">prov:qualifiedAttribution</a></td>
     </tr>
     <tr>
       <td>Range:</td>
