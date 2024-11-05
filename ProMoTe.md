@@ -888,7 +888,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>A data product, in a data mesh environment.</td>
+      <td>A data product in a product oriented architecture. Data products consist of one or more owned data assets that have been optimised for consumption by external consumers.</td>
     </tr>
     <tr>
       <td>Subclass of:</td>
