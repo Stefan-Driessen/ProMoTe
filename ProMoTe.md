@@ -784,6 +784,10 @@ The following properties are specific to this class: [resource](#property-resour
       <td>Range:</td>
       <td><a href="http://xmlns.com/foaf/0.1/#term_Agent">foaf:Agent</a></td>
     </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Domain participants can have various relations to the data product and its data. Registering them contributes to Addressability.</td>
+    </tr>
   </tbody>
 </table>
 
