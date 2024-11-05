@@ -944,11 +944,15 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
     </tr>
     <tr>
       <td>Range:</td>
-      <td><a href="#class-data-asset">pmt:Data Asset</a></td>
+      <td><a href="#class-data-asset">pmt:DataAsset</a></td>
     </tr>
     <tr>
       <td>Usage Note:</td>
       <td>This is an inverse property of <a href="#property-offered-in-data-product">pmt:offeredInDataProduct</a></td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Grouping one or more data assets together in a data product helps with Reusability, Discoverability, Addressability, Truthfulness and Trustworthiness, Understandability and Interoperability.</td>
     </tr>
   </tbody>
 </table>
