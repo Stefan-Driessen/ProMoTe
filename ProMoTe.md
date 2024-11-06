@@ -1358,7 +1358,7 @@ The following properties are specific to this class: [distribution](#output-port
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Output ports are necessary for achieving Native Accessability.</td>
+      <td>Output ports make different distributions of a data product's datasets Natively Accessible and Reusable.</td>
     </tr>
   </tbody>
 </table>
