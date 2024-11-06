@@ -1272,6 +1272,10 @@ The following properties are inherited from the super-class [dcat:Distribution](
       <td>Usage Note:</td>
       <td>This represents a general availability of a dataset. It implies no information about the actual access method of the data, which is described in <a href="#class-output-port">pmt:OutputPort</a>.</td>
     </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Distributions make data assets Natively Accessible.</td>
+    </tr>
   </tbody>
 </table>
 
