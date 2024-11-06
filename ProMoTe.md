@@ -1026,6 +1026,10 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
       <td>Range:</td>
       <td><a href="#class-control-port">pmt:ControlPort</a></td>
     </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Control ports are primarily used to monitor the Truthfulness & Trustworthiness of data products. They can also be used to enforce Interoperability and Security.</td>
+    </tr>
   </tbody>
 </table>
 
