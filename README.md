@@ -1404,6 +1404,10 @@ The following properties are specific to this class: [distribution](#output-port
       <td>Range:</td>
       <td><a href="#class-data-product">pmt:DataProduct</a></td>
     </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Having multiple output ports per data product helps with Native Accessibility and Reusability.</td>
+    </tr>
   </tbody>
 </table>
 
