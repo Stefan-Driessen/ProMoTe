@@ -1370,11 +1370,15 @@ The following properties are specific to this class: [distribution](#output-port
   <tbody>
     <tr>
       <td>Definition:</td>
-      <td>The distribution that is exposed for consumption through this output port.</td>
+      <td>The distributions that are exposed for consumption through this output port.</td>
     </tr>
     <tr>
       <td>Range:</td>
       <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution">dcat:Distribution</a></td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Grouping together multiple distributions per output port helps with Native Accessibility and Reusability.</td>
     </tr>
   </tbody>
 </table>
