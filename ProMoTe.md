@@ -1173,6 +1173,10 @@ The following properties are inherited from the super-class [dcat:Dataset](https
       <td>Usage Note:</td>
       <td>A data asset can exist as a precursor to  a data product and evolve to become a fully mature data produt over time. Not every data set needs to become a fully function data product however. Additionally, it is possible for a single data product to provide (access to) multiple data assets.</td>
     </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Grouping data together on a conceptual level helps grealy with Addressability and Discoverability. It can also contribute to Interoperability and Reusability.</td>
+    </tr>
   </tbody>
 </table>
 
