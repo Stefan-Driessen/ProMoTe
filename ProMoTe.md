@@ -1334,26 +1334,6 @@ The following properties are inherited from the super-class [dcat:Distribution](
     </tr>
   </tbody>
 </table>
-  
-<h4 id="distribution-property-description"> Property: Description</h4>
-<table>
-  <thead>
-    <tr>
-      <th width="240px"><strong>Property</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="http://purl.org/dc/elements/1.1/description">dct:description</a></span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Definition</td>
-      <td>A human-readable account of the distribution.</td>
-    </tr>
-  </tbody>
-  <tr>
-    <td>Motivation:</td>
-    <td>Adding a description of the distribution improves Understandability, and potentially Discoverability and Interoperability. </td>
-  </tr>
-</table>
 
 ### Class: Output Port
 The following properties are specific to this class: [distribution](#output-port-property-distribution), [data product](#output-port-property-data-product).
