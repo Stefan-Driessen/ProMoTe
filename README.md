@@ -1747,6 +1747,10 @@ The following properties are specific to this class: [providerPromise](#property
       <td>Usage Note</td>
       <td>This is an inverse property of <a href="#property-input-port">pmt:inputPort</a></td>
     </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Keeping track of who consumes what data contributes to determining Value, as well as establishing data lineage. In addition to making data products Feedback-Driven, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability.</td>
+    </tr>
   </tbody>
 </table>
 
