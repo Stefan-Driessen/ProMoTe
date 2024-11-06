@@ -1457,9 +1457,9 @@ The following properties are specific to this class: [distribution](#output-port
       <td><a href="https://www.w3.org/TR/vocab-dcat-2/#Property:data_service_endpoint_description">dcat:endpointDescription</a></td>
     </tr>
     <tr>
-      <td>Usage note:</td>
-      <td>Consume instructions are the informal equivalent of the <a href="#class-data-contract">pmt:dataContract</a>, which captures the formal promises and expectations of this output port.</td>
-    </tr>
+          <td>Usage note:</td>
+          <td>Consume instructions can serve as the informal counterpart to the <a href="#class-data-contract">pmt:dataContract</a>, which captures the formal promises and expectations of this output port.</td>
+        </tr>
     <tr>
       <td>Motivation:</td>
       <td>Consume instructions help with making the data Natively Accessible, and, potentially, Interoperable.</td>
