@@ -1046,10 +1046,10 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
       <td>Definition:</td>
       <td>The logic or code used to transform data coming in from the input ports of the data product to the distributions that are exposerd through the output ports.</td>
     </tr>
-    <!-- <tr>
+    <tr>
       <td>Motivation:</td>
-      <td></td>
-    </tr> -->
+      <td>Transformation logic is necessary to create distributions that are Natively Accessible and guarantee a certain level of Truthfulness and Trustworthiness and/or Interoperability.</td>
+    </tr>
   </tbody>
 </table>
 
