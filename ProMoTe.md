@@ -1829,30 +1829,6 @@ The following properties are specific to this class: [providerPromise](#property
   </tbody>
 </table>
 
-<h4 id="input-port-property-physical-schema">Property: Physical Schema</h4>
-<table>
-  <thead>
-    <tr>
-      <th width="240px"><strong>Property:</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#input-port-property-physical-schema">pmt:physicalSchema</a></span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Definition:</td>
-      <td>A description of the data structure and internal relations at the distribution-level.</td>
-    </tr>
-    <tr>
-      <td>Usage Note:</td>
-      <td>Physical schemas describe the structure of data of a specific <a href="#class-distribution">distribution</a> of a <a href="#class-data-asset">pmt:DataAsset</a>. Structural descriptions that hold true across all distributions of a data asset are described in <a href="#data-asset-property-logical-schema">pmt:logicalSchema</a></td>
-  </tr>
-  <tr>
-      <td>Motivation:</td>
-      <td>Physical schemas help with Understandability and Interoperability.</td>
-    </tr>
-  </tbody>
-</table>
-
 ### Class: Control Port
 <!-- Control Ports MUST have a [pmt:correspondingDataProduct](#control-port-corresponding-data-product). Contorl port SHOULD refer to the policies that are manged through them with a [policy](#control-port-property-policy) property. Control ports MAY be extended with a [dct:description](#control-port-property-description) property. -->
 
@@ -1871,6 +1847,10 @@ The following properties are specific to this class: [providerPromise](#property
     <tr>
       <td>Usage Note:</td>
       <td>Since control ports are highly dependent on the infrastructure provided in the data mesh, as well as the policies employed in the organisation, description of control ports SHOULD be extended with external documentation as the situation requires.</td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Control Ports allow external parties to observe and influence the management of the data product, effectively contributing to Truthfulness and Trustworthiness, as well as Security.</td>
     </tr>
   </tbody>
 </table>
