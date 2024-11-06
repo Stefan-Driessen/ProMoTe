@@ -1800,7 +1800,7 @@ The following properties are specific to this class: [providerPromise](#property
       <td>An IT system that generates or stores data that is used for this data product, such as a speficic data warehouse, data lake, or database.</td>
     </tr>
       <td>Usage Note:</td>
-      <td>This property can be used to describe either where a specific data set or distribution lives, or give information on the input port of a data product.</td>
+      <td>This property can be used to describe either where a specific data asset or distribution lives, or give information on the input port of a data product.</td>
     </tr>
     <tr>
       <td>Motivation:</td>

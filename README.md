@@ -1800,7 +1800,7 @@ The following properties are specific to this class: [providerPromise](#property
       <td>{<a href="#class-data-asset">pmt:DataAsset</a>, <a href="#class-input-port">pmt:InputPort</a>}</td>
     </tr>
       <td>Usage Note:</td>
-      <td>This property can be used to describe either where a specific data set or distribution lives, or give information on the input port of a data product.</td>
+      <td>This property can be used to describe either where a specific data asset or distribution lives, or give information on the input port of a data product.</td>
     </tr>
     <tr>
       <td>Motivation:</td>
