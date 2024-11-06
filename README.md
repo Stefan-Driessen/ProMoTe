@@ -1554,7 +1554,7 @@ The following properties are specific to this class: [providerPromise](#property
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the <a href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en">SCC</a> for transferring data outside of the EU, <a href="https://www.ciso-portal.com/iso-9001-cybersecurity/">ISO9001</a> for security purposes or <a href="https://github.com/paypal/data-contract-template/blob/main/docs/README.md#Data-quality">Paypal's standard</a> for a data contract in a data mesh.</td>
+      <td>Data contracts are highly dependable on the requirements and culture of the organisation implementing a data mesh. External standards, can and should be used to establish and describe data contracts. Examples include the <a href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en">SCC</a> for transferring data outside of the EU, <a href="https://www.ciso-portal.com/iso-9001-cybersecurity/">ISO9001</a> for security purposes or <a href="https://github.com/bitol-io/open-data-contract-standard">the Linux foundation's standard</a> for a data contract in a data mesh.</td>
     </tr>
   </tbody>
   <tr>
