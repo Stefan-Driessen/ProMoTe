@@ -1306,7 +1306,7 @@ The following properties are inherited from the super-class [dcat:Distribution](
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Output ports make different distributions of a data product's data assets Natively Accessible. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
+      <td>Output ports make different distributions of a data product's datasets Natively Accessible and Reusable. Additionally, tracking lineage in general contributes to Discoverability, Addressability, Understandability, and Interoperability. </td>
     </tr>
   </tbody>
 </table>
