@@ -1246,7 +1246,8 @@ The following properties are inherited from the super-class [dcat:Dataset](https
   
 ### Class: Distribution
 The following property is specific to this class: [technical schema](#property-technical-schema).
-The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port). The following properties are shared with the [pmt:Resource](#class-resource) class: [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [source system](#resource-property-source-system), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
+The following property is shared with the [pmt:DataProduct](#class-data-product) class: [output port](#distribution-property-output-port). 
+The following properties are shared with the [pmt:Resource](#class-resource) class: [title](#property-title), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [source system](#resource-property-source-system), [consumed by](#resource-property-consumed-by), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution).
 
 The following properties are inherited from the super-class [dcat:Distribution](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution): [spatial/geographic coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial), [spatial resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_spatial_resolution), [temporal coverage](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal), [temporal resolution](https://www.w3.org/TR/vocab-dcat-2/#Property:dataset_temporal_resolution).
 
@@ -1332,7 +1333,9 @@ The following properties are inherited from the super-class [dcat:Distribution](
 </table>
 
 ### Class: Output Port
-The following properties are specific to this class: [distribution](#output-port-property-distribution), [data product](#output-port-property-data-product).
+The following properties are specific to this class: [distribution](#property-exposes-distribution), [data product](#property-exposes-data-product), [endpoint URI](#property-endpoint-uri), [consume instructions](#property-consume-instructions), [access management](#output-port-access-management).
+The following property is shared with the [pmt:InputPort](#class-input-port) class: [data contract](#output-port-property-data-contract).
+The following property is shared with the [pmt:Resource](#class-resource) and [pmt:Distribution](#class-distribution) classes: [is consumed by](#output-port-property-consumed-by).
 
 <!-- Output Ports MUST have a [pmt:exposesDistribution](#property-exposes-distribution) and a [pmt:exposesDataProduct](#output-port-property-data-product). Output Ports SHOULD have [pmt:consumeInstructions](#property-consume-instructions), [pmt:dataContract](#property-data-contract), and at least one [pmt:consumedBy](#output-port-property-consumed-by). -->
 
@@ -1440,7 +1443,7 @@ The following properties are specific to this class: [distribution](#output-port
   <thead>
     <tr>
       <th width="240px"><strong>Property</strong></th>
-      <th width="760px"><span style="font-weight:normal"><a href="#property=consume-instructions">pmt:consumeInstructions</a></span></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-consume-instructions">pmt:consumeInstructions</a></span></th>
     </tr>
   </thead>
   <tbody>
