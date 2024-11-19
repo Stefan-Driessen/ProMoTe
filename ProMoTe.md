@@ -114,7 +114,7 @@ The key words MAY, MUST, MUST NOT, and SHOULD in this document are to be interpr
 ProMoTe is compliant with and incorporates terms from the [DCAT vocabulary](), which in turn makes use of [other vocabularies](https://www.w3.org/TR/vocab-dcat-2/#namespaces). This means that ProMoTe can both extend existing implementations using these standards and be extended with terminology from those vocabularies.
 
 ## Specification
-![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe_v5.4.png)
+![UML](https://raw.githubusercontent.com/Stefan-Driessen/ProMoTe/main/ProMoTe.png)
 
 ### Class: Resource
 The following properties are specific to this class: [title](#property-title), [resource provider](#property-resource-provider), [domain](#resource-property-domain), [identifier](#property-identifier), [description](#resource-property-description), [date issued](#property-date-issued), [date modified](#property-date-modified), [resource type](#property-resource-type), [keyword](#property-keyword), [language](#property-language), [institutional knowledge](#resource-property-institutional-knowledge), [newer version](#property-newer-version), [older version](#property-older-version), [estimated value](#property-estimated-value), [qualified attribution](#property-qualified-attribution), [catalog record](#resource-property-catalog-record).
