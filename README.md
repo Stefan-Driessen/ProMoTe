@@ -1539,7 +1539,7 @@ The following property is shared with the [pmt:Resource](#class-resource) and [p
 </table>
 
 ### Class: Data Contract
-The following properties are specific to this class: [providerPromise](#property-provider-promise), [consumerPromise](#property-consumer-promise), [service level agreement](#property-service-level-agreement), [service level objective](#property-service-level-objective).
+The following properties are specific to this class: [providerPromise](#property-provider-promise), [consumerPromise](#property-consumer-promise), [service level agreement](#property-service-level-agreement), [service level objective](#property-service-level-objective), [applies to port](#property-applies-to-port).
 <!-- Data contracts SHOULD refer to policies that are used to manage this data product using [pmt:policy](#data-contract-property-policy). -->
 
 <table>
