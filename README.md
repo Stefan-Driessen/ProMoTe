@@ -1540,7 +1540,6 @@ The following property is shared with the [pmt:Resource](#class-resource) and [p
 
 ### Class: Data Contract
 The following properties are specific to this class: [providerPromise](#property-provider-promise), [consumerPromise](#property-consumer-promise), [service level agreement](#property-service-level-agreement), [service level objective](#property-service-level-objective).
-
 <!-- Data contracts SHOULD refer to policies that are used to manage this data product using [pmt:policy](#data-contract-property-policy). -->
 
 <table>
@@ -1687,6 +1686,26 @@ The following properties are specific to this class: [providerPromise](#property
     <tr>
       <td>Motivation:</td>
       <td>Service level objectives contribute to Understandability, Truthfulness & Trustworthiness, Native Accessibility and Security.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Property: Applies to Port
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-applies-to-port">pmt:appliesToPort</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>The output port to which this policy applies.</td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Linking data contracts to output ports makes data products Feedback-Driven, Truthful & Trustworthy, Valuable and Secure.</td>
     </tr>
   </tbody>
 </table>

@@ -1693,6 +1693,26 @@ The following properties are specific to this class: [providerPromise](#property
   </tbody>
 </table>
 
+#### Property: Applies to Port
+<table>
+  <thead>
+    <tr>
+      <th width="240px"><strong>Property:</strong></th>
+      <th width="760px"><span style="font-weight:normal"><a href="#property-applies-to-port">pmt:appliesToPort</a></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition:</td>
+      <td>The output port to which this policy applies.</td>
+    </tr>
+    <tr>
+      <td>Motivation:</td>
+      <td>Linking data contracts to output ports makes data products Feedback-Driven, Truthful & Trustworthy, Valuable and Secure.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### Class: Input Port
 <!-- Input Ports MUST have a [pmt:correspondingDataProduct](#input-port-corresponding-data-product). Input ports MUST have either a [pmt:consumes](#input-port-property-consumes) relation or a [pmt:sourceSystem](#input-port-property-source-system) relation. Input ports SHOULD be extended with a [dct:description](#input-port-property-description) relation. -->
 
