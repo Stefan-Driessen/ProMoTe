@@ -1707,6 +1707,10 @@ The following properties are specific to this class: [providerPromise](#property
       <td>The output port to which this policy applies.</td>
     </tr>
     <tr>
+      <td>Range:</td>
+      <td>{<a href=#class-output-port>pmt:OutputPort</a>, <a href=#class-input-port>pmt:InputPort</a>}</td>
+    </tr>
+    <tr>
       <td>Motivation:</td>
       <td>Linking data contracts to output ports makes data products Feedback-Driven, Truthful & Trustworthy, Valuable and Secure.</td>
     </tr>
