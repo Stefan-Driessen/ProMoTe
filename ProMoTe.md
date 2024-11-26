@@ -53,7 +53,7 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
       - [Property: Defining Domain](#property-defining-domain)
       - [Property: Knowledge URI](#property-knowledge-uri)
     - [Class: Data Product](#class-data-product)
-      - [Property Data Provider](#property-data-provider)
+      - [Property: Data Provider](#property-data-provider)
       - [Property: Data Asset](#property-data-asset)
       - [Property: Output Port](#data-product-property-output-port)
       - [Property: Input Port](#property-input-port)
@@ -600,6 +600,10 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
       <td>Ideally the estimated value is backed by a quantifier, such as money or manhours saved. Otherwise a qualitative description of the value provided can be provided.</td>
     </tr>
     <tr>
+      <td>Usage Note:</td>
+      <td>In commercial settings estimated value can be used as the price of the resource.</td>
+    </tr>
+    <tr>
       <td>Motivation:</td>
       <td>Explicitly including an estimated value is necessary for establishing that a resource is Valuable.</td>
     </tr>
@@ -904,7 +908,7 @@ The following properties are inherited from the super-class [pmt:Resource](#clas
   </tbody>
 </table>
 
-#### Property Data Provider
+#### Property: Data Provider
 <table>
   <thead>
     <tr>
@@ -1486,7 +1490,7 @@ The following property is shared with the [pmt:Resource](#class-resource) and [p
     </tr>
     <tr>
       <td>Usage Note:</td>
-      <td>Linking consumed data products and operational sources helps establish data lineage, as well a <a href="#property-estimated-value">pmt:estimatedValue</a> for the connsumed data products.</td>
+      <td>Linking consumed data products and operational sources helps establish data lineage, as well a <a href="#property-estimated-value">pmt:estimatedValue</a> for the consumed data products.</td>
     </tr>
     <tr>
       <td>Motivation:</td>
