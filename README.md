@@ -11,9 +11,6 @@ This document is licensed under the [Creative Commons BY 4.0](https://creativeco
 <!-- toc -->
 
 - [ProMoTe](#promote)
-  - [TODO:](#todo)
-    - [Disclaimer](#disclaimer)
-    - [License](#license)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [ProMoTe from a bird's-eye view](#promote-from-a-birds-eye-view)
@@ -448,7 +445,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Versioning in general contributes to Discoverability, Addressability, Understandability, Truthfulness & Trustworthiness, and Interoperability.</td>
+      <td>Versioning in general contributes to Understandability, Truthfulness & Trustworthiness, Interoperability, Native Accessibility, and Reusability.</td>
     </tr>
   </tbody>
 </table>
@@ -484,7 +481,7 @@ Resources MAY be extended with one or more [pmt:consumes](#resource-property-con
     </tr>
     <tr>
       <td>Motivation:</td>
-      <td>Versioning in general contributes to Discoverability, Addressability, Understandability, Truthfulness & Trustworthiness, and Interoperability.</td>
+      <td>Versioning in general contributes to Understandability, Truthfulness & Trustworthiness, Interoperability, Native Accessibility, and Reusability.</td>
     </tr>
   </tbody>
 </table>
