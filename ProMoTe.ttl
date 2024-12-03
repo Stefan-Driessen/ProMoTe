@@ -770,10 +770,7 @@
 
 ###  https://github.com/Stefan-Driessen/ProMoTe#CustomerDataAsset
 :CustomerDataAsset rdf:type owl:NamedIndividual ,
-                            :class-dataset ,
-                            [ rdf:type owl:Class ;
-                              owl:complementOf :class-data-contract
-                            ] ;
+                            :class-dataset ;
                    <http://www.w3.org/ns/dcat#distribution> :Anonymized_SQL-based_Distributions ,
                                                             :Complete_SQL-based_Distributions ,
                                                             :Kafka_Based_Distributions ;
